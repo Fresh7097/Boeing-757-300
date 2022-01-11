@@ -1,0 +1,337 @@
+<?xml version="1.0" ?>
+
+
+
+	<ModelInfo>
+
+		<LODS>
+
+			<LOD ModelFile="exterior_LOD00.gltf" minSize="50"/>
+
+		</LODS>
+<NodeAnimation type="WingFlex">
+		<!-- Nice to have: script simulation variables to do rotation/translation (type="Custom") -->
+		<!-- Alternatively we could script the angles for the wingflex -->
+		<!-- Just define some nodes/bones to move for now (this configuration will likely change at some point) -->
+		<!-- 	order	:	node 															-->
+		<!-- 	0	:	the left wing bone closest to the center 							-->
+		<!-- 	1	:	in between 															-->
+		<!-- 	2	:	in between 															-->
+		<!-- 	3	:	the left wing bone furthest from the center 						-->
+		<!-- 	4	:	the right wing bone closest to the center 							-->
+		<!-- 	5	:	in between 															-->
+		<!-- 	6	:	in between 															-->
+		<!-- 	7	:	the right wing bone furthest from the center 						-->
+		<!-- 	8	:	the left wing engine pivot node closest to the center 				-->
+		<!-- 	9	:	the left wing engine pivot node furthest from the center 			-->
+		<!-- 	10	:	the right wing engine pivot node closest to the center 				-->
+		<!-- 	11	:	the right wing engine pivot node furthest from the center 			-->
+		<Node>WING_BONE_LEFT_01</Node>
+		<!-- the left wing bone closest to the center -->
+		<Node>WING_BONE_LEFT_02</Node>
+		<!-- in between -->
+		<Node>WING_BONE_LEFT_03</Node>
+		<!-- in between -->
+		<Node>WING_BONE_LEFT_04</Node>
+		<!-- the left wing bone furthest from the center -->
+		<Node>WING_BONE_RIGHT_01</Node>
+		<!-- the right wing bone closest to the center -->
+		<Node>WING_BONE_RIGHT_02</Node>
+		<!-- in between -->
+		<Node>WING_BONE_RIGHT_03</Node>
+		<!-- in between -->
+		<Node>WING_BONE_RIGHT_04</Node>
+		<!-- the right wing bone furthest from the center -->
+		<Node>Engine_PIVOT_LEFT_1</Node>
+		<!-- the left wing engine pivot node closest to the center -->
+		<Node>Engine_PIVOT_LEFT_2</Node>
+		<!-- the left wing engine pivot node furthest from the center -->
+		<Node>Engine_PIVOT_RIGHT_1</Node>
+		<!-- the right wing engine pivot node closest to the center -->
+		<Node>Engine_PIVOT_RIGHT_2</Node>
+		<!-- the right wing engine pivot node furthest from the center -->
+	</NodeAnimation>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Exterior.xml"/>
+		<Include ModelBehaviorFile="Asobo\Common.xml"/>
+		<Include ModelBehaviorFile="Asobo\Generic\FX.xml"/>
+      	<Include File="instruments.xml"/>    
+
+<!-- Engine -->
+		<Component ID="ENGINE">
+			<!-- Left Engine Fan -->
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>1</ID>
+				<ANIM_NODE_ID>Eng1_Low</ANIM_NODE_ID>
+				<ANIM_NAME>Eng1_Low</ANIM_NAME>
+				<STILL_NODE_ID>Eng1_SL</STILL_NODE_ID>
+				<SLOW_NODE_ID>Eng1_SL</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>Eng1_B</BLURRED_NODE_ID>
+			</UseTemplate>
+			<!-- Right Engine Fan -->
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_Template">
+				<ID>2</ID>
+				<ANIM_NODE_ID>Eng2_Low</ANIM_NODE_ID>
+				<ANIM_NAME>Eng2_Low</ANIM_NAME>
+				<STILL_NODE_ID>Eng2_SL</STILL_NODE_ID>
+				<SLOW_NODE_ID>Eng2_SL</SLOW_NODE_ID>
+				<BLURRED_NODE_ID>Eng2_B</BLURRED_NODE_ID>
+			</UseTemplate>
+			<!-- Left Engine Reverser -->
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_ReverseThrust_Template">
+				<ID>1</ID>
+				<ANIM_NAME>Eng1_Rev</ANIM_NAME>
+			</UseTemplate>
+			<!-- Right Engine Reverser -->
+			<UseTemplate Name="ASOBO_ENGINE_Turbine_ReverseThrust_Template">
+				<ID>2</ID>
+				<ANIM_NAME>Eng2_Rev</ANIM_NAME>
+			</UseTemplate>
+		</Component>
+        <Component ID="FLIGHT_SURFACES">
+            <UseTemplate Name="ASOBO_HANDLING_Slats_Template">
+				<ANIM_NAME_LEFT>l_slat_percent_key</ANIM_NAME_LEFT>
+				<ANIM_NAME_RIGHT>r_slat_percent_key</ANIM_NAME_RIGHT>
+			</UseTemplate>
+        </Component>
+                <!-- Doors -->
+		<Component ID="INTERACTIVE_POINTS">
+			<UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+				<ID>1</ID>
+				<ANIM_NAME>door_cargo</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+				<ID>0</ID>
+				<ANIM_NAME>door_passenger</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
+				<ID>2</ID>
+				<ANIM_NAME>door_rear</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+				<ID>11</ID>
+				<NODE_ID>GROUND_FUELPIPE</NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+				<ID>12</ID>
+				<NODE_ID>GROUND_GPUPIPE</NODE_ID>
+			</UseTemplate>
+        </Component>
+<!-- Gear Goes Here for Asobo template-->
+		<Component ID="GEAR">
+		   <UseTemplate Name="ASOBO_GEAR_Left_Template">
+				<ANIM_NAME>l_gear</ANIM_NAME>
+			</UseTemplate>
+            <UseTemplate Name="ASOBO_GEAR_Left_Template">
+				<ANIM_NAME>r_gear</ANIM_NAME>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GEAR_Left_Template">
+				<ANIM_NAME>c_gear</ANIM_NAME>
+			</UseTemplate>
+
+			<UseTemplate Name="ASOBO_GEAR_Steering_Template">
+				<ANIM_NAME>c_wheel</ANIM_NAME>
+			</UseTemplate>
+            <!-- Wheel Roatation -->
+            <UseTemplate Name="ASOBO_GEAR_Center_Tire_Template">
+				<ANIM_NAME>c_tire_anim</ANIM_NAME>
+				<NODE_ID_STILL>WHEELS_C</NODE_ID_STILL>
+				<NODE_ID_BLURRED>WHEELS_C_B</NODE_ID_BLURRED>
+			</UseTemplate>
+            <!-- N/A -->
+            <UseTemplate Name="ASOBO_GT_Recursive_AnimEvents">
+                <ANIM_EVENT_ID>1</ANIM_EVENT_ID>
+                <ANIM_NAME>c_gear</ANIM_NAME>
+                <ANIM_EVENT_EFFECT_NAME_1>CAM_LANDING</ANIM_EVENT_EFFECT_NAME_1>
+                <ANIM_EVENT_EFFECT_NAME_2>CAM_LANDING_Backward</ANIM_EVENT_EFFECT_NAME_2>
+                <NORMALIZED_TIME_1>0</NORMALIZED_TIME_1>
+                <NORMALIZED_TIME_2>50</NORMALIZED_TIME_2>
+                <DIRECTION_1>Forward</DIRECTION_1>
+                <DIRECTION_2>Backward</DIRECTION_2>
+            </UseTemplate>
+        </Component>
+		<Component ID="SLATS/FLAPS">
+            <UseTemplate Name="ASOBO_HANDLING_Slats_Template">
+				<ANIM_NAME_LEFT>l_slat_percent_key</ANIM_NAME_LEFT>
+				<ANIM_NAME_RIGHT>r_slat_percent_key</ANIM_NAME_RIGHT>
+			</UseTemplate>
+        </Component>
+        <Component ID="Wiper">
+			<UseTemplate Name="ASOBO_HANDLING_Wipers_Template">
+            	<ANIM_NAME>Wiper</ANIM_NAME>
+				<CIRCUIT_ID_WIPERS>111</CIRCUIT_ID_WIPERS>
+                <MIN_SPEED_PERCENT>0.1</MIN_SPEED_PERCENT>
+			    <MAX_SPEED>100</MAX_SPEED><!-- ANIM frames played per second at max speed -->
+			</UseTemplate>
+        </Component>
+
+    <!-- Ram Air Turbine -->
+    	<!--<Component ID="RAT_Truck" Node="RAT_Truck">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>RAT_Truck</ANIM_NAME>
+				<ANIM_LENGTH>50</ANIM_LENGTH>
+				<ANIM_CODE>(L:ADG_POS, number)</ANIM_CODE>
+			</UseTemplate>
+		</Component> -->
+		<!-- ADG Propeller rotation-->
+		<Component ID="RAT" Node="RAT">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>RAT_Turbine</ANIM_NAME>
+				<ANIM_LENGTH>50</ANIM_LENGTH>
+				<ANIM_LAG>400</ANIM_LAG>
+				<ANIM_CODE>(L:ADG_TURB_POS, number) 100 /</ANIM_CODE>
+			</UseTemplate>
+		</Component>
+		<!-- ADG Propeller Visibility -->
+		<Component ID="RAT_Blur" Node="RAT_Blur">
+			<UseTemplate Name="ASOBO_GT_Visibility_Code">
+				<VISIBILITY_CODE>(L:ASCRJ_ADG_DISC_VIS, bool)</VISIBILITY_CODE>
+			</UseTemplate>
+		</Component>
+    </Behaviors>
+
+    <Animation name="RAT_Truck" guid="a99d5095-7a6a-4148-ad01-024913b17fad" length="50" type="Sim" typeParam2="RAT_Truck" typeParam="AutoPlay" />
+        <PartInfo>
+	    <Name>RAT_Truck</Name>
+	    <AnimLength>50</AnimLength>
+	    <Animation>
+	    	<Parameter>
+			    <Code>
+				(L:ADG_POS, bool) 100 *
+			    </Code>
+			<Lag>10</Lag>
+		</Parameter>
+	    </Animation>
+	    <MouseRect>
+		    <Cursor>Hand</Cursor>
+		    <CallbackCode>(L:ADG_POS, bool) ! (>L:ADG_POS, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
+
+<!-- FLIGHT CONTROL SURFACES-->
+<Animation name="flaps_left" guid="3849E47F-9088-4699-8959-EC0C54DF8015" length="100" type="Sim" typeparam2="flaps_left" typeparam="AutoPlay" />
+  <PartInfo>
+    <Name>flaps_left</Name>
+    <AnimLength>100</AnimLength>
+    <Animation>
+      <Parameter>
+        <Sim>
+          <Variable>TRAILING EDGE FLAPS RIGHT PERCENT</Variable>
+          <Units>percent</Units>
+          <Scale>1</Scale>
+          <Bias>0</Bias>
+        </Sim>
+      </Parameter>
+    </Animation>
+  </PartInfo>
+<!-- Ailerons -->
+<Animation name="l_aileron_key" guid="622F7859-7C22-462c-B763-4BA2CD8096E7" length="100" type="Sim" typeParam2="l_aileron_key" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>l_aileron_key</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>AILERON LEFT DEFLECTION PCT</Variable>
+                    <Scale>-.5</Scale>
+                    <Units>Percent</Units>
+                    <Bias>50</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+<Animation name="r_aileron_key" guid="e33e6505-f9e3-4fcd-a41b-b372a64cf103" length="100" type="Sim" typeParam2="r_aileron_key" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>r_aileron_key</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>AILERON RIGHT DEFLECTION PCT</Variable>
+                    <Scale>-.5</Scale>
+                    <Units>Percent</Units>
+                    <Bias>50</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+<!-- Elevator -->
+<Animation name="l_elevator_key" guid="22dbdd8d-9dba-4ec5-8bd9-02274fec98f7" length="100" type="Sim" typeParam2="l_elevator_key" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>l_elevator_key</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>ELEVATOR DEFLECTION PCT</Variable>
+                    <Units>Grads</Units>
+                    <Bias>50</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+<Animation name="r_elevator_key" guid="72216434-01f0-4306-b8bf-7d56f148cc33" length="100" type="Sim" typeParam2="r_elevator_key" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>r_elevator_key</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>ELEVATOR DEFLECTION PCT</Variable>
+                    <Units>Grads</Units>
+                    <Bias>50</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+<!-- Rudder -->
+<Animation name="rudder_top_out" guid="e5eef5c7-8872-4920-80b3-355e5b146092" length="100" type="Sim" typeParam2="rudder_top_out" typeParam="AutoPlay" />	
+    <PartInfo>
+        <Name>rudder_top_out</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>RUDDER DEFLECTION PCT</Variable>
+                    <Units>Percent</Units>
+                    <Bias>50</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+
+<!-- Flight Surface Secondary -->
+		
+<!-- Flaps -->
+<!-- SPOILERS -->
+<Animation name="l_spoiler_key" guid="aed11e49-9b85-4a23-975e-02062e071ffe" length="100" type="Sim" typeParam2="l_spoiler_key" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>l_spoiler_key</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>SPOILERS LEFT POSITION</Variable>
+                    <Scale>1</Scale>
+                    <Units>percent</Units>
+                    <Bias>0</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+<Animation name="r_spoiler_key" guid="5ed69390-616c-46bb-a3bb-f20b30f35044" length="100" type="Sim" typeParam2="r_spoiler_key" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>r_spoiler_key</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>SPOILERS RIGHT POSITION</Variable>
+                    <Scale>1</Scale>
+                    <Units>percent</Units>
+                    <Bias>0</Bias>
+                </Sim>
+            </Parameter>
+        </Animation>
+    </PartInfo>
+</ModelInfo>
