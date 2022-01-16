@@ -1,0 +1,61 @@
+body {
+    
+        position:absolute; z-index: 1;
+    #SettingButton
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/Gear.png") no-repeat;
+            top: 500px;
+            right: 1043px;
+        }
+    #DashButton
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/Dash.png") no-repeat;
+            top: -255px;
+            right: 1042px;
+        }
+    #ClipButton
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/clip.png") no-repeat;
+            top: -180px;
+            right: 1042px;
+        }
+    #ChartButton
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/chart.png") no-repeat;
+            top: -105px;
+            right: 1042px;
+        }
+    #PlaneButton
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/plane.png") no-repeat;
+            top: -30px;
+            right: 1042px;
+        }
+        #Simbrief
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/simbrief.png") no-repeat;
+            top: 528px;
+            right: 540px;
+        }
+        #SimbriefName
+        {
+            position: absolute;
+            z-index: 20;
+            background-image:url("/Pages/VCockpit/instruments/e170/Assets/EFB/simbriefname.png") no-repeat;
+            top: 528px;
+            right: 550px;
+        }
+                                          
+    }
