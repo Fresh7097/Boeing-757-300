@@ -2,14 +2,14 @@
 
 
 
-	<ModelInfo guid="{7b0183bb-24fb-4f10-8c46-09080adeb785}">
+	<ModelInfo guid="{3575e4ce-92e6-483b-a9a1-82d8aad95f83}">
 
 		<LODS>
 
-			<LOD ModelFile="interior_LOD00.gltf" minSize="50"/>
+			<LOD ModelFile="interior_LOD00.gltf" minSize="500"/>
 
 		</LODS>
-	<Behaviors>
+    <Behaviors>
 		<Include ModelBehaviorFile="Asobo\Common.xml"/> <!-- ##################################### -->
 		<Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml"/>
 		<Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
@@ -21,9 +21,10 @@
         <Include ModelBehaviorFile="Asobo\Common.xml"/>
         <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
 		<Include File="Boeing.xml"/>
-
-		<Component ID="Throttle">	
-			<UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
+                
+<!-- Movables -->
+        <Component ID="Yoke_Controls">
+            <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
 				<TT_DESCRIPTION_ID>@TT_Package.ENGINE_THROTTLE_ACTION</TT_DESCRIPTION_ID>
 				<TT_DESCRIPTION_INDEX>1</TT_DESCRIPTION_INDEX>
 				<ID>1</ID>
@@ -49,8 +50,6 @@
 				<INVERT_IM_DRAG_INPUT_SCALAR>True</INVERT_IM_DRAG_INPUT_SCALAR>
 				<REVERSER_INVERT_IM_DRAG_INPUT_SCALAR>True</REVERSER_INVERT_IM_DRAG_INPUT_SCALAR>
 			</UseTemplate>
-		</Component>
-		<Component ID="Yoke_Controls">
 			<UseTemplate Name="ASOBO_HANDLING_Yoke_Hideable_Template">
 				<ID>1</ID>
 				<NODE_ID>COCKPIT_pylon_yoke_pilot</NODE_ID>
@@ -100,2960 +99,517 @@
 				<ANIMTIP_6>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_30</ANIMTIP_6>
 			</UseTemplate>
 		</Component>
-		<Component ID="OverHead_Panel">
-			<DefaultTemplateParameters>
-				<SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:3</SIMVAR_POWER_SETTING>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_VISIBILITY>True</SEQ1_CODE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_DOWN_STATE>True</SEQ1_CODE_DRIVES_DOWN_STATE>
-				<SEQ2_NOT_DIMMABLE>True</SEQ2_NOT_DIMMABLE>
-			</DefaultTemplateParameters>
-		</Component>
-		<Component ID="Brakes">
-			<UseTemplate Name="ASOBO_HANDLING_Knob_Autobrakes_Template">
-				<AIRLINER_TYPE>BOEING</AIRLINER_TYPE>
-				<NODE_ID>Auto_Brake</NODE_ID>
-				<ANIM_NAME>Auto_Brake</ANIM_NAME>
-				<TYPE>X_STATES</TYPE>
-				<EMISSIVE_NODE_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:5</EMISSIVE_NODE_SIMVAR_POWER_SETTING>
-						<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-						<THRESHOLD_INPUT>0.0005</THRESHOLD_INPUT>
-				<THRESHOLD_MOUSE>0.05</THRESHOLD_MOUSE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LANDING_GEAR_Switch_ParkingBrake_Template">
-				<NODE_ID>Parking_Break</NODE_ID>
-				<ANIM_NAME>Parking_Break</ANIM_NAME>
-			</UseTemplate>		
-		</Component>
-		<Component ID="IRS">
-			<UseTemplate Name="ASOBO_AIRLINER_IRS_Knob_Template">
-				<NODE_ID>IRS_Knob_L</NODE_ID>
-				<ANIM_NAME>IRS_Knob_L</ANIM_NAME>
-				<ANIM_CODE>100</ANIM_CODE>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-				<ID>3</ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AIRLINER_IRS_Knob_Template">
-				<NODE_ID>IRS_Knob_C</NODE_ID>
-				<ANIM_NAME>IRS_Knob_C</ANIM_NAME>
-				<ANIM_CODE>100</ANIM_CODE>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-				<ID>2</ID>
-			</UseTemplate>
-				<UseTemplate Name="ASOBO_AIRLINER_IRS_Knob_Template">
-				<NODE_ID>IRS_Knob_R</NODE_ID>
-				<ANIM_NAME>IRS_Knob_R</ANIM_NAME>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-				<ID>1</ID>
-				<ANIM_CODE>100</ANIM_CODE>
-			</UseTemplate>
-		</Component>
-		<Component ID="Panel_Lights">
-			<OverrideTemplateParameters>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-				<KNOB_LIGHT_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</KNOB_LIGHT_SIMVAR_POWER_SETTING>
-				<FAILURE>(A:LIGHT PANEL ON:1, Bool)</FAILURE>
-			</OverrideTemplateParameters>
-			<UseTemplate Name="ASOBO_LIGHTING_Knob_Panel_Template">
-				<NODE_ID>Panel_Light</NODE_ID>
-				<ANIM_NAME>Panel_Light</ANIM_NAME>
-			        <POTENTIOMETER>20</POTENTIOMETER>
-				<TYPE>Dimmer</TYPE>
-				<SIMVAR_INDEX>1</SIMVAR_INDEX>
-				<TT_DESCRIPTION_ID>@TT_Package.LIGHTING_SWITCH_LIGHT_INSTRU_BRIGHTNESS_PILOT_ACTION</TT_DESCRIPTION_ID>
-				<TOOLTIP_TITLE>@TT_Package.LIGHTING_SWITCH_LIGHT_INSTRU_BRIGHTNESS_PILOT_TITLE</TOOLTIP_TITLE>
-			</UseTemplate>
-
-			<OverrideTemplateParameters>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-				<KNOB_LIGHT_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</KNOB_LIGHT_SIMVAR_POWER_SETTING>
-				<FAILURE>(A:LIGHT PANEL ON:2, Bool)</FAILURE>
-			</OverrideTemplateParameters>
-			<UseTemplate Name="ASOBO_LIGHTING_Knob_Panel_Template">
-				<NODE_ID>Gauge_Lights</NODE_ID>
-				<ANIM_NAME>Gauge_Lights</ANIM_NAME>
-			        <POTENTIOMETER>20</POTENTIOMETER>
-				<TYPE>Dimmer</TYPE>
-				<SIMVAR_INDEX>2</SIMVAR_INDEX>
-				<TT_DESCRIPTION_ID>@TT_Package.LIGHTING_SWITCH_LIGHT_INSTRU_BRIGHTNESS_PILOT_ACTION</TT_DESCRIPTION_ID>
-				<TOOLTIP_TITLE>@TT_Package.LIGHTING_SWITCH_LIGHT_INSTRU_BRIGHTNESS_PILOT_TITLE</TOOLTIP_TITLE>
-			</UseTemplate>
-
-						<OverrideTemplateParameters>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-				<KNOB_LIGHT_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</KNOB_LIGHT_SIMVAR_POWER_SETTING>
-				<FAILURE>(A:LIGHT PANEL ON:3, Bool)</FAILURE>
-			</OverrideTemplateParameters>
-			<UseTemplate Name="ASOBO_LIGHTING_Knob_Panel_Template">
-				<NODE_ID>Guage_Lights_1</NODE_ID>
-				<ANIM_NAME>Guage_Lights_1</ANIM_NAME>
-			        <POTENTIOMETER>20</POTENTIOMETER>
-				<TYPE>Dimmer</TYPE>
-				<SIMVAR_INDEX>3</SIMVAR_INDEX>
-				<TT_DESCRIPTION_ID>@TT_Package.LIGHTING_SWITCH_LIGHT_INSTRU_BRIGHTNESS_PILOT_ACTION</TT_DESCRIPTION_ID>
-				<TOOLTIP_TITLE>@TT_Package.LIGHTING_SWITCH_LIGHT_INSTRU_BRIGHTNESS_PILOT_TITLE</TOOLTIP_TITLE>
-			</UseTemplate>
-
-		</Component>
-		<Component ID="Light">
-			<DefaultTemplateParameters>
-				<INTERACTION>Push</INTERACTION>
-				<PUSH_TYPE>AIRLINER</PUSH_TYPE>
-				<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-				<NO_SEQ2>True</NO_SEQ2>
-			</DefaultTemplateParameters>
-			<UseTemplate Name="ASOBO_GT_Update">
-				<FREQUENCY>5</FREQUENCY>
-				<UPDATE_CODE>
-					(A:GEAR HANDLE POSITION, Bool) (A:GEAR POSITION, percent) 99.9 &gt; and (&gt;O:_ShouldBeConnectedToPowerGrid)
-					(O:_ShouldBeConnectedToPowerGrid) sp0
-					1 (&gt;A:BUS LOOKUP INDEX, Number)
-					(A:CIRCUIT CONNECTION ON:51, Bool) l0 != if{ 51 1 (&gt;K:2:ELECTRICAL_BUS_TO_CIRCUIT_CONNECTION_TOGGLE) }
-					(A:CIRCUIT CONNECTION ON:54, Bool) l0 != if{ 54 1 (&gt;K:2:ELECTRICAL_BUS_TO_CIRCUIT_CONNECTION_TOGGLE) }
-				</UPDATE_CODE>
-			</UseTemplate>
-			<!-- Anti Colision -->
-
-			<!-- Nav & Wing lights -->
-			<UseTemplate Name="ASOBO_LIGHTING_Push_Light_Strobe_Template">
-				<ANIM_NAME>Light_Strobe</ANIM_NAME>
-				<NODE_ID>Light_Strobe</NODE_ID>
-				<SEQ2_NODE_ID>Light_Strobe</SEQ2_NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Push_Light_Beacon_Template">
-				<ANIM_NAME>Light_Beacon</ANIM_NAME>
-				<NODE_ID>Light_Beacon</NODE_ID>
-				<SEQ2_NODE_ID>Light_Beacon</SEQ2_NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Push_Light_Navigation_Template">
-				<ANIM_NAME>Light_Nav</ANIM_NAME>
-				<NODE_ID>Light_Nav</NODE_ID>
-				<INTERACTION_TYPE>PUSH</INTERACTION_TYPE>
-				<SEQ2_EMISSIVE_CODE>Nav_SEQ2</SEQ2_EMISSIVE_CODE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_GT_Component_Emissive_Gauge">
-				<NODE_ID>Light_Beacon</NODE_ID>
-			</UseTemplate>
-			<!-- Wing Lights -->
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Landing_Template">
-				<ANIM_NAME>Light_Landing_L</ANIM_NAME>
-				<NODE_ID>Light_Landing_L</NODE_ID>
-				<ID>1</ID>
-				<TT_DESCRIPTION_ID>@TT_Package.B747_LIGHTING_SWITCH_LIGHT_LANDING_ACTION</TT_DESCRIPTION_ID>
-				<TT_DESCRIPTION_INDEX>(R:1:@TT_Package.GT_STATE_OUTBOARD) (R:1:@TT_Package.GT_STATE_LEFT)</TT_DESCRIPTION_INDEX>
-				<SIMVAR_INDEX>1</SIMVAR_INDEX>
-				<INVERT_SWITCH_ON_CONDITION>True</INVERT_SWITCH_ON_CONDITION>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Landing_Template">
-				<ANIM_NAME>Light_Landing_R</ANIM_NAME>
-				<NODE_ID>Light_Landing_R</NODE_ID>
-				<ID>2</ID>
-				<TT_DESCRIPTION_ID>@TT_Package.B747_LIGHTING_SWITCH_LIGHT_LANDING_ACTION</TT_DESCRIPTION_ID>
-				<TT_DESCRIPTION_INDEX>(R:1:@TT_Package.GT_STATE_OUTBOARD) (R:1:@TT_Package.GT_STATE_RIGHT)</TT_DESCRIPTION_INDEX>
-				<SIMVAR_INDEX>2</SIMVAR_INDEX>
-				<INVERT_SWITCH_ON_CONDITION>True</INVERT_SWITCH_ON_CONDITION>
-			</UseTemplate>
-			<!-- Nose Lights -->
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Landing_Template">
-				<ANIM_NAME>Takeoff_Light</ANIM_NAME>
-				<NODE_ID>Takeoff_Light</NODE_ID>
-				<ID>3</ID>
-				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.LANDING_LIGHT_NOSE_OFF</ANIMTIP_0>
-				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.LANDING_LIGHT_NOSE_ON</ANIMTIP_1>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Taxi_Template">
-				<ANIM_NAME>Left_Taxi</ANIM_NAME>
-				<NODE_ID>Left_Taxi</NODE_ID>
-				<ID>1</ID>
-				<TT_DESCRIPTION_ID>@TT_Package.LIGHTING_SWITCH_LIGHT_RUNWAY_ACTION</TT_DESCRIPTION_ID><!-- RWY TURNOFF LEFT -->
-				<TT_DESCRIPTION_INDEX>(R:1:@TT_Package.GT_STATE_LEFT)</TT_DESCRIPTION_INDEX>
-				<TOOLTIP_TITLE>@TT_Package.LIGHTING_SWITCH_LIGHT_RUNWAY_TITLE</TOOLTIP_TITLE>	
-				<SIMVAR_INDEX>1</SIMVAR_INDEX>
-				<INVERT_SWITCH_ON_CONDITION>True</INVERT_SWITCH_ON_CONDITION>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Taxi_Template">
-				<ANIM_NAME>Right_Taxi</ANIM_NAME>
-				<NODE_ID>Right_Taxi</NODE_ID>
-				<ID>2</ID>
-				<TT_DESCRIPTION_ID>@TT_Package.LIGHTING_SWITCH_LIGHT_RUNWAY_ACTION</TT_DESCRIPTION_ID><!-- RWY TURNOFF RIGHT -->
-				<TT_DESCRIPTION_INDEX>(R:1:@TT_Package.GT_STATE_RIGHT)</TT_DESCRIPTION_INDEX>
-				<TOOLTIP_TITLE>@TT_Package.LIGHTING_SWITCH_LIGHT_RUNWAY_TITLE</TOOLTIP_TITLE>	
-				<SIMVAR_INDEX>2</SIMVAR_INDEX>
-				<INVERT_SWITCH_ON_CONDITION>True</INVERT_SWITCH_ON_CONDITION>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_LIGHTING_Switch_Light_Taxi_Template">
-				<NODE_ID>Taxi_Nose</NODE_ID>
-				<ANIM_NAME>Taxi_Nose</ANIM_NAME>
-				<ID>3</ID>
-				<SIMVAR_INDEX>3</SIMVAR_INDEX>
-				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.RWY_L_TURNOFF_LIGHTS_OFF</ANIMTIP_0>
-				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.RWY_L_TURNOFF_LIGHTS_ON</ANIMTIP_1>
-				<INVERT_SWITCH_ON_CONDITION>True</INVERT_SWITCH_ON_CONDITION>
-			</UseTemplate>
-		</Component>
-		<Component ID="Engine">
-							<UseTemplate Name="ASOBO_GT_Update">
-					<!-- AutoShutdown puts the mixture lever at 0 - ensure it doesn't stay stuck at 0 when the player doesnt have a mixture lever accessible -->
-					<FREQUENCY>1</FREQUENCY>
-					<UPDATE_CODE>
-					(A:GENERAL ENG MIXTURE LEVER POSITION:1, Percent over 100) 0.9 &lt; if{
-						(&gt;K:MIXTURE_RICH)
-					}
-					</UPDATE_CODE>
-				</UseTemplate>
-				<UseTemplate Name="ASOBO_ENGINE_Switch_Starter_Template">
-					<NODE_ID>Engine1_Stater</NODE_ID>
-					<ANIM_NAME>Engine1_Stater</ANIM_NAME>
-					<TYPE>2Values_StarterIgnition</TYPE>
-					<IGNITION_ACTIVE_TYPE>1</IGNITION_ACTIVE_TYPE>
-					<ID>1</ID>
-					<ANIM_EVENT_EFFECT_NAME>CAM_ENGINE01</ANIM_EVENT_EFFECT_NAME>
-					<NORMALIZED_TIME>0.5</NORMALIZED_TIME>
-					<DIRECTION>Forward</DIRECTION>
-					<FORCE_FULL_ANIM>True</FORCE_FULL_ANIM>
-					<ANIM_TIME_IN_SEC>0.5</ANIM_TIME_IN_SEC>
-					<INVERT_ANIM>True</INVERT_ANIM>
-					<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.STARTER_1_SET_OFF</ANIMTIP_0>
-					<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.STARTER_1_SET_ON</ANIMTIP_1>
-				</UseTemplate>
-				<UseTemplate Name="ASOBO_ENGINE_Switch_Starter_Template">
-					<NODE_ID>Engine2_Stater</NODE_ID>
-					<ANIM_NAME>Engine2_Stater</ANIM_NAME>
-					<TYPE>2Values_StarterIgnition</TYPE>
-					<IGNITION_ACTIVE_TYPE>1</IGNITION_ACTIVE_TYPE>
-					<ID>2</ID>
-					<ANIM_EVENT_EFFECT_NAME>CAM_ENGINE02</ANIM_EVENT_EFFECT_NAME>
-					<NORMALIZED_TIME>0.5</NORMALIZED_TIME>
-					<DIRECTION>Forward</DIRECTION>
-					<FORCE_FULL_ANIM>True</FORCE_FULL_ANIM>
-					<ANIM_TIME_IN_SEC>0.5</ANIM_TIME_IN_SEC>
-					<INVERT_ANIM>True</INVERT_ANIM>
-					<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.STARTER_2_SET_OFF</ANIMTIP_0>
-					<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.STARTER_2_SET_ON</ANIMTIP_1>
-				</UseTemplate>
-				<UseTemplate Name="ASOBO_ENGINE_Switch_Starter_Template">
-          		<!--777 INOP-->
-					<NODE_ID>switch_ovhd_start_fuel_engine_light_03</NODE_ID>
-					<ANIM_NAME>ovhd_switch_start_fuel_engine_light_03</ANIM_NAME>
-					<TYPE>2Values_StarterIgnition</TYPE>
-					<IGNITION_ACTIVE_TYPE>1</IGNITION_ACTIVE_TYPE>
-					<ID>3</ID>
-					<ANIM_EVENT_EFFECT_NAME>CAM_ENGINE03</ANIM_EVENT_EFFECT_NAME>
-					<NORMALIZED_TIME>0.5</NORMALIZED_TIME>
-					<DIRECTION>Forward</DIRECTION>
-					<FORCE_FULL_ANIM>True</FORCE_FULL_ANIM>
-					<ANIM_TIME_IN_SEC>0.5</ANIM_TIME_IN_SEC>
-					<INVERT_ANIM>True</INVERT_ANIM>
-					<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.STARTER_3_SET_OFF</ANIMTIP_0>
-					<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.STARTER_3_SET_ON</ANIMTIP_1>
-				</UseTemplate>
-				<UseTemplate Name="ASOBO_ENGINE_Switch_Starter_Template">
-          		<!--777 INOP-->
-					<NODE_ID>switch_ovhd_start_fuel_engine_light_04</NODE_ID>
-					<ANIM_NAME>ovhd_switch_start_fuel_engine_light_04</ANIM_NAME>
-					<TYPE>2Values_StarterIgnition</TYPE>
-					<IGNITION_ACTIVE_TYPE>1</IGNITION_ACTIVE_TYPE>
-					<ID>4</ID>
-					<ANIM_EVENT_EFFECT_NAME>CAM_ENGINE04</ANIM_EVENT_EFFECT_NAME>
-					<NORMALIZED_TIME>0.5</NORMALIZED_TIME>
-					<DIRECTION>Forward</DIRECTION>
-					<FORCE_FULL_ANIM>True</FORCE_FULL_ANIM>
-					<ANIM_TIME_IN_SEC>0.5</ANIM_TIME_IN_SEC>
-					<INVERT_ANIM>True</INVERT_ANIM>
-					<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.STARTER_4_SET_OFF</ANIMTIP_0>
-					<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.STARTER_4_SET_ON</ANIMTIP_1>
-				</UseTemplate>
-		</Component>
-		<Component ID="Electrical_Panel">
-			<DefaultTemplateParameters>
-				<SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</SIMVAR_POWER_SETTING>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_VISIBILITY>True</SEQ1_CODE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_DOWN_STATE>True</SEQ1_CODE_DRIVES_DOWN_STATE>
-				<SEQ2_NOT_DIMMABLE>True</SEQ2_NOT_DIMMABLE>
-			</DefaultTemplateParameters>
-			<DefaultTemplateParameters>
-				<TYPE>BOEING</TYPE>
-				<VARIANT>747</VARIANT>
-			</DefaultTemplateParameters>
-   			<UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
-      			<NODE_ID>Master_Battery</NODE_ID>
-      			<ANIM_NAME>Master_Battery</ANIM_NAME>
-				<SEQ1_NODE_ID>Battery_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Battery_SQ1</SEQ2_NODE_ID>
-				<COVER_NODE_ID>Master_Battery_Cover</COVER_NODE_ID>
-				<COVER_ANIM_NAME>Master_Battery_Cover</COVER_ANIM_NAME>
-    		</UseTemplate>
-			<UseTemplate Name="ASOBO_ELECTRICAL_Push_APU_Generator_Template">
-				<NODE_ID>APU_GEN</NODE_ID>
-				<ANIM_NAME>APU_GEN</ANIM_NAME>
-				<SEQ1_NODE_ID>AP_GEN_SQ1</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>AP_GEN_SEQ2</SEQ2_NODE_ID>
-				<ID>1</ID>
-				<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_ELECTRICAL_Push_Alternator_Template">
-				<NODE_ID>Gen_Cont1</NODE_ID>
-				<ANIM_NAME>Gen_Cont1</ANIM_NAME>
-				<SEQ1_NODE_ID>Gen_Cont1_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Gen_Cont1_SEQ1</SEQ2_NODE_ID>
-				<TT_DESCRIPTION_ID>@TT_Package.ELECTRICAL_SWITCH_GENERATOR_ACTION</TT_DESCRIPTION_ID>
-				<TOOLTIP_TITLE>@TT_Package.ELECTRICAL_SWITCH_GENERATOR_TITLE</TOOLTIP_TITLE>
-				<TT_DESCRIPTION_INDEX>1</TT_DESCRIPTION_INDEX>
-				<ID>1</ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_ELECTRICAL_Push_Alternator_Template">
-				<NODE_ID>Gen_Cont2</NODE_ID>
-				<ANIM_NAME>Gen_Cont2</ANIM_NAME>
-				<SEQ1_NODE_ID>Gen_Cont2_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Gen_Cont2_SEQ1</SEQ2_NODE_ID>
-				<TT_DESCRIPTION_ID>@TT_Package.ELECTRICAL_SWITCH_GENERATOR_ACTION</TT_DESCRIPTION_ID>
-				<TOOLTIP_TITLE>@TT_Package.ELECTRICAL_SWITCH_GENERATOR_TITLE</TOOLTIP_TITLE>
-				<TT_DESCRIPTION_INDEX>2</TT_DESCRIPTION_INDEX>
-				<ID>2</ID>
-			</UseTemplate>
-			<UseTemplate Name="DD_ELECTRICAL_Switch_Bus_SubTemplate">
-				<NODE_ID>Bus1</NODE_ID>
-				<ANIM_NAME>Bus1</ANIM_NAME>
-				<SEQ1_NODE_ID>Bus1_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Bus1_SEQ1</SEQ2_NODE_ID>
-				<SOURCE_ID>1</SOURCE_ID>
-				<ID>2</ID>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.BUS_TIE_1_SET_ISLN</ON_TOOLTIP>
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.BUS_TIE_1_SET_AUTO</OFF_TOOLTIP>
-			</UseTemplate>
-			<UseTemplate Name="DD_ELECTRICAL_Switch_Bus_SubTemplate">
-				<NODE_ID>Bus2</NODE_ID>
-				<ANIM_NAME>Bus2</ANIM_NAME>
-				<SEQ1_NODE_ID>Bus2_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Bus2_SEQ1</SEQ2_NODE_ID>
-				<SOURCE_ID>1</SOURCE_ID>
-				<ID>3</ID>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.BUS_TIE_2_SET_ISLN</ON_TOOLTIP>
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.BUS_TIE_2_SET_AUTO</OFF_TOOLTIP>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_BOEING_Knob_StandbyPower_Template">
-				<NODE_ID>Standby_Power</NODE_ID>
-				<ANIM_NAME>Standby_Power</ANIM_NAME>
-				<BATTERY_BUS_ID>6</BATTERY_BUS_ID>
-				<MAIN_BUS_ID>4</MAIN_BUS_ID>
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-			</UseTemplate>	
-			<UseTemplate Name="DD_ELECTRICAL_Push_ExternalPower_Template">
-				<NODE_ID>External_Power</NODE_ID>
-				<ANIM_NAME>External_Power</ANIM_NAME>
-				<SEQ1_NODE_ID>External_Power_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>External_Power_SQ1</SEQ2_NODE_ID>
-				<ID>1</ID>
-				<SIMVAR_POWER_SETTING_SEQ1>EXTERNAL POWER AVAILABLE:1</SIMVAR_POWER_SETTING_SEQ1>
-				<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
-			</UseTemplate>
+<!-- Electrical Panel -->
+	    <Component ID="Electrical_Panel">
+		    <DefaultTemplateParameters>
+			    <SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</SIMVAR_POWER_SETTING>
+			    <TYPE>BOEING</TYPE>
+    			<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
+    			<SEQ1_CODE_DRIVES_VISIBILITY>True</SEQ1_CODE_DRIVES_VISIBILITY>
+	     		<SEQ1_CODE_DRIVES_DOWN_STATE>True</SEQ1_CODE_DRIVES_DOWN_STATE>
+		    	<SEQ2_NOT_DIMMABLE>True</SEQ2_NOT_DIMMABLE>
+		    </DefaultTemplateParameters>
+		    <DefaultTemplateParameters>
+			    <TYPE>BOEING</TYPE>
+			    <VARIANT>747</VARIANT>
+		    </DefaultTemplateParameters>
+		    <UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
+      	    	<NODE_ID>Master_Battery</NODE_ID>
+      	    	<ANIM_NAME>Master_Battery</ANIM_NAME>
+		    	<SEQ1_NODE_ID>Battery_SQ2</SEQ1_NODE_ID>
+		    	<SEQ2_NODE_ID>Battery_SQ1</SEQ2_NODE_ID>
+		    	<COVER_NODE_ID>Master_Battery_Cover</COVER_NODE_ID>
+		    	<COVER_ANIM_NAME>Master_Battery_Cover</COVER_ANIM_NAME>
+        	</UseTemplate>
+		    <UseTemplate Name="ASOBO_BOEING_Knob_StandbyPower_Template">
+		    	<NODE_ID>Standby_Power</NODE_ID>
+	    		<ANIM_NAME>Standby_Power</ANIM_NAME>
+		    	<BATTERY_BUS_ID>6</BATTERY_BUS_ID>
+		    	<MAIN_BUS_ID>4</MAIN_BUS_ID>
+	    		<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
+		    </UseTemplate>
+		    <UseTemplate Name="DD_ELECTRICAL_Push_ExternalPower_Template">
+		    	<NODE_ID>External_Power</NODE_ID>
+		    	<ANIM_NAME>External_Power</ANIM_NAME>
+		    	<SEQ1_NODE_ID>External_Power_SQ2</SEQ1_NODE_ID>
+		    	<SEQ2_NODE_ID>External_Power_SQ1</SEQ2_NODE_ID>
+		    	<ID>1</ID>
+		    	<SIMVAR_POWER_SETTING_SEQ1>EXTERNAL POWER AVAILABLE:1</SIMVAR_POWER_SETTING_SEQ1>
+		    	<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
+	    	</UseTemplate>	
+		        <UseTemplate Name="ASOBO_ELECTRICAL_Push_APU_Generator_Template">
+			    <NODE_ID>APU_GEN</NODE_ID>
+			    <ANIM_NAME>APU_GEN</ANIM_NAME>
+		    	<SEQ1_NODE_ID>AP_GEN_SQ1</SEQ1_NODE_ID>
+			    <SEQ2_NODE_ID>AP_GEN_SEQ2</SEQ2_NODE_ID>
+		    	<ID>1</ID>
+		    	<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
+		    </UseTemplate>
 			<UseTemplate Name="ASOBO_ELECTRICAL_Switch_APU_Starter_Template">
-					<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-					<NODE_ID>APU_Starter</NODE_ID>
-					<ANIM_NAME>APU_Starter</ANIM_NAME>
-					<EMISSIVE_NODE_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</EMISSIVE_NODE_SIMVAR_POWER_SETTING>
-					<SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-					<SWITCH_POSITION_VAR>XMLVAR_APU_StarterKnob_Pos</SWITCH_POSITION_VAR>
-					<ACTIVE_FUEL_PUMP_ON_RPM>17</ACTIVE_FUEL_PUMP_ON_RPM>
-				</UseTemplate>
-			
-			<UseTemplate Name="ASOBO_ELECTRICAL_Indicator_APU_Ready_Template">
-				<NODE_ID>APU_Starter_SQ2</NODE_ID>
-				<MIN_PCT_RPM>17</MIN_PCT_RPM>
-			</UseTemplate>
-		</Component>
-		<Component ID="Fuel_Panel">
-			<DefaultTemplateParameters>
-				<SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</SIMVAR_POWER_SETTING>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_VISIBILITY>True</SEQ1_CODE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_DOWN_STATE>True</SEQ1_CODE_DRIVES_DOWN_STATE>
-				<SEQ2_NOT_DIMMABLE>True</SEQ2_NOT_DIMMABLE>
-			</DefaultTemplateParameters>
-			<DefaultTemplateParameters>
-				<TYPE>BOEING</TYPE>
-				<VARIANT>AS01B</VARIANT>
-			</DefaultTemplateParameters>
-			<UseTemplate Name="ASOBO_FUEL_Push_Pump_Template">
-				<NODE_ID>FUEL_Push_Pump_Center_1</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Pump_Center_1</ANIM_NAME>
-				<TYPE>AS02A</TYPE>
-				<ID>1</ID>
-				<SEQ1_NODE_ID>FUEL_Push_Pump_Center_1_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>FUEL_Push_Pump_Center_1_SQ1</SEQ2_NODE_ID>
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_L_CNTR_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_L_CNTR_TURN_OFF</ON_TOOLTIP>
-				<LINE_ID>2</LINE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Push_Pump_Template">
-				<NODE_ID>FUEL_Push_Pump_Center_2</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Pump_Center_2</ANIM_NAME>
-				<TYPE>AS02A</TYPE>
-				<ID>2</ID>
-				<SEQ1_NODE_ID>FUEL_Push_Pump_Center_2_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>FUEL_Push_Pump_Center_2_SQ1</SEQ2_NODE_ID>
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_R_CNTR_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_R_CNTR_TURN_OFF</ON_TOOLTIP>
-				<LINE_ID>13</LINE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Push_Pump_Template">
-				<NODE_ID>FUEL_Push_Pump_1_AFT</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Pump_1_AFT</ANIM_NAME>
-				<TYPE>AS02A</TYPE>
-				<ID>3</ID>
-				<SEQ1_NODE_ID>FUEL_Push_Pump_1_AFT_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>FUEL_Push_Pump_1_AFT_SQ1</SEQ2_NODE_ID>				
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_L_AFT_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_L_AFT_TURN_OFF</ON_TOOLTIP>
-				<LINE_ID>4</LINE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Push_Pump_Template">
-				<NODE_ID>FUEL_Push_Pump_1_FWD</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Pump_1_FWD</ANIM_NAME>
-				<TYPE>AS02A</TYPE>
-				<ID>4</ID>
-				<SEQ1_NODE_ID>FUEL_Push_Pump_1_FRT_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>FUEL_Push_Pump_1_FRT_SQ1</SEQ2_NODE_ID>
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_L_FWD_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_L_FWD_TURN_OFF</ON_TOOLTIP>
-				<LINE_ID>8</LINE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Push_Pump_Template">
-				<NODE_ID>FUEL_Push_Pump_2_AFT</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Pump_2_AFT</ANIM_NAME>
-				<TYPE>AS02A</TYPE>
-				<ID>5</ID>
-				<SEQ1_NODE_ID>FUEL_Push_Pump_2_AFT_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>FUEL_Push_Pump_2_AFT_SQ1</SEQ2_NODE_ID>					
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_R_AFT_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_R_AFT_TURN_OFF</ON_TOOLTIP>
-				<LINE_ID>15</LINE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Push_Pump_Template">
-				<NODE_ID>FUEL_Push_Pump_2_FWD</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Pump_2_FWD</ANIM_NAME>
-				<TYPE>AS02A</TYPE>
-				<ID>6</ID>
-				<SEQ1_NODE_ID>FUEL_Push_Pump_2_FRT_SQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>FUEL_Push_Pump_2_FRT_SQ1</SEQ2_NODE_ID>				
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_R_FWD_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_PUMP_R_FWD_TURN_OFF</ON_TOOLTIP>
-				<LINE_ID>19</LINE_ID>
-			</UseTemplate>
-			<!-- Fuel Xfeed/Balance -->
-			<UseTemplate Name="ASOBO_FUEL_Push_Valve_Template">
-				<NODE_ID>FUEL_Push_Valve_1</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Valve_1</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<VARIANT>AS01B</VARIANT>
-				<ID>3</ID>
-				<OFF_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_XFEED_TURN_ON</OFF_TOOLTIP>
-				<ON_TOOLTIP>COCKPIT.TOOLTIPS.FUEL_XFEED_TURN_OFF</ON_TOOLTIP>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Push_Balance_Template">
-				<NODE_ID>FUEL_Push_Balance</NODE_ID>
-				<ANIM_NAME>FUEL_Push_Balance</ANIM_NAME>
-				<TRIGGER_ID_LEFTTORIGHT>3</TRIGGER_ID_LEFTTORIGHT>
-				<TRIGGER_ID_RIGHTTOLEFT>4</TRIGGER_ID_RIGHTTOLEFT>
-				<TRIGGER_ID_ENDBALANCE>5</TRIGGER_ID_ENDBALANCE>
-				<TANK_ID_LEFT>2</TANK_ID_LEFT>
-				<TANK_ID_RIGHT>3</TANK_ID_RIGHT>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Switch_Valve_Template">
-				<NODE_ID>Fuel_Valve1</NODE_ID>
-				<ANIM_NAME>Fuel_Valve1</ANIM_NAME>
-				<ID>1</ID>
-				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.FUEL_SWITCH_VALVE_L_SET_RUN</ANIMTIP_0>
-				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.FUEL_SWITCH_VALVE_L_SET_CUTOFF</ANIMTIP_1>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_FUEL_Switch_Valve_Template">
-				<NODE_ID>Fuel_Valve2</NODE_ID>
-				<ANIM_NAME>Fuel_Valve2</ANIM_NAME>
-				<ID>2</ID>
-				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.FUEL_SWITCH_VALVE_R_SET_RUN</ANIMTIP_0>
-				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.FUEL_SWITCH_VALVE_R_SET_CUTOFF</ANIMTIP_1>
-			</UseTemplate>
-		</Component>
-		<Component ID="Hydralic_Panel_1">
-			<Visibility>
-      			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, bool) &amp; if{ 0 } els{ 1 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-			<UseTemplate Name="DD_ENGINE_Switch_Hydraulic_Template">
-				<NODE_ID>Hyd_Engine_1</NODE_ID>
-				<ANIM_NAME>Hyd_Engine_1</ANIM_NAME>
-				<SEQ1_EMISSIVE_CODE>Hyd_Engine_1_SEQ1</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>Hyd_Engine_1_SEQ2</SEQ2_EMISSIVE_CODE>
-				<SEQ_POWERED>(A:ELECTRICAL MASTER BATTERY, Bool)</SEQ_POWERED>
-                <TOOLTIPID>TOOLTIPTEXT_B737_HYD_ENG1_SWITCH</TOOLTIPID>				
-				<ID>1</ID>
-			</UseTemplate>
-			<UseTemplate Name="DD_ENGINE_Switch_Hydraulic_Template">
-				<NODE_ID>Hyd_Engine_2</NODE_ID>
-				<ANIM_NAME>Hyd_Engine_2</ANIM_NAME>
-				<SEQ1_EMISSIVE_CODE>Hyd_Engine_2_SEQ1</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>Hyd_Engine_2_SEQ2</SEQ2_EMISSIVE_CODE>
-				<SEQ_POWERED>(A:ELECTRICAL MASTER BATTERY, Bool)</SEQ_POWERED>
-                <TOOLTIPID>TOOLTIPTEXT_B737_HYD_ENG2_SWITCH</TOOLTIPID>
-				<ID>2</ID>
-			</UseTemplate>
-		</Component>
-
-		<Component ID="Hydralic_Panel_3">
-			<Visibility>
-      			<Parameter>
-        			<Code>(L:XMLVAR_StandbyPower_Selector, bool) &amp; if{ 0 } els{ 1 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-			<UseTemplate Name="DD_ENGINE_Switch_Hydraulic_Template">
-				<NODE_ID>Elec_Hyd_Pump1</NODE_ID>
-				<ANIM_NAME>Elec_Hyd_Pump1</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_CODE>Elec_Hyd_Pump1_SEQ2</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>Elec_Hyd_Pump1_SEQ1</SEQ2_EMISSIVE_CODE>
-				<ID>3</ID>
-				<TOOLTIPID>TOOLTIPTEXT_B737_HYD_ELEC_SWITCH</TOOLTIPID>
-			</UseTemplate>
-		    <UseTemplate Name="DD_ENGINE_Switch_Hydraulic_Template">
-				<NODE_ID>Elec_Hyd_Pump2</NODE_ID>
-				<ANIM_NAME>Elec_Hyd_Pump2</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_CODE>Elec_Hyd_Pump2_SEQ2</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>Elec_Hyd_Pump2_SEQ1</SEQ2_EMISSIVE_CODE>
-				<ID>4</ID>
-				<TOOLTIPID>TOOLTIPTEXT_B737_HYD_ELEC_SWITCH</TOOLTIPID>
-		    </UseTemplate>
-			<UseTemplate Name="DD_ENGINE_Switch_Hydraulic_Template">
-				<NODE_ID>Elec_Hyd_Pump3</NODE_ID>
-				<ANIM_NAME>Elec_Hyd_Pump3</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_CODE>Elec_Hyd_Pump3_SEQ2</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>Elec_Hyd_Pump3_SEQ1</SEQ2_EMISSIVE_CODE>
-				<ID>5</ID>
-				<TOOLTIPID>TOOLTIPTEXT_B737_HYD_ELEC_SWITCH</TOOLTIPID>
-			</UseTemplate>
-		    <UseTemplate Name="DD_ENGINE_Switch_Hydraulic_Template">
-				<NODE_ID>Elec_Hyd_Pump4</NODE_ID>
-				<ANIM_NAME>Elec_Hyd_Pump4</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_CODE>Elec_Hyd_Pump4_SEQ2</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>Elec_Hyd_Pump4_SEQ1</SEQ2_EMISSIVE_CODE>
-				<ID>6</ID>
-				<TOOLTIPID>TOOLTIPTEXT_B737_HYD_ELEC_SWITCH</TOOLTIPID>
-		    </UseTemplate>
-		</Component>	
-		<Component ID="Bleed_Panel">						
-   			<UseTemplate Name="ASOBO_ELECTRICAL_Switch_APU_Bleed_Template">
-				<NODE_ID>APU_Bleed</NODE_ID>
-				<ANIM_NAME>APU_Bleed</ANIM_NAME>
-				<FAULT_NODE_ID>APU_Bleed_SEQ2</FAULT_NODE_ID>
-				<ON_NODE_ID>APU_Bleed_SEQ1</ON_NODE_ID>
-		    </UseTemplate>
-			<UseTemplate Name="ASOBO_ELECTRICAL_Push_Engine_Bleed_Template">
-				<NODE_ID>E1_Bleed</NODE_ID>
-				<ANIM_NAME>E1_Bleed</ANIM_NAME>
-				<SEQ1_NODE_ID>E1_Bleed_SEQ1</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>E1_Bleed_SEQ2</SEQ2_NODE_ID>
-				<ID>1</ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_ELECTRICAL_Push_Engine_Bleed_Template">
-				<NODE_ID>E2_Bleed</NODE_ID>
-				<ANIM_NAME>E2_Bleed</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_NODE_ID>E2_Bleed_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>E2_Bleed_SEQ1</SEQ2_NODE_ID>
-				<ID>2</ID>
-			</UseTemplate>
-		</Component>
-		<Component ID="Anti_Ice">
-            <UseTemplate Name="ASOBO_DEICE_Push_Engine_Template">
-				<NODE_ID>ANTI_ICE_ENGINE_1</NODE_ID>
-				<ANIM_NAME>ANTI_ICE_ENGINE_1</ANIM_NAME>
-				<INTERACTION>Push</INTERACTION>
-                <SEQ1_NODE_ID>E1_Ice_SEQ2</SEQ1_NODE_ID>
-				<ID>1</ID>
-			</UseTemplate>
-            <UseTemplate Name="ASOBO_DEICE_Push_Engine_Template">
-				<NODE_ID>ANTI_ICE_ENGINE_2</NODE_ID>
-				<ANIM_NAME>ANTI_ICE_ENGINE_2</ANIM_NAME>
-				<INTERACTION>Push</INTERACTION>
-                <SEQ1_NODE_ID>E2_Ice_SEQ2</SEQ1_NODE_ID>
-				<ID>2</ID>
-			</UseTemplate>
-			<!-- Wing Anti ice -->
-            <UseTemplate Name="ASOBO_DEICE_Push_Airframe_Template">
-				<NODE_ID>ANTI_ICE_WING</NODE_ID>
-				<ANIM_NAME>ANTI_ICE_WING</ANIM_NAME>
-				<INTERACTION>Push</INTERACTION>
-				<TYPE>FAULT_ON</TYPE>
-				<TOOLTIPID>%((A:STRUCTURAL DEICE SWITCH, Bool))%{if}TT:COCKPIT.TOOLTIPS.DEICE_WINGS_ON%{else}TT:COCKPIT.TOOLTIPS.DEICE_WINGS_OFF%{end}</TOOLTIPID>
-                <SEQ1_NODE_ID>Wing_Ice_SEQ2</SEQ1_NODE_ID>
-			</UseTemplate>
-			<!-- Window Heat -->
-			<UseTemplate Name="ASOBO_DEICE_Push_Windshield_Template">
-				<NODE_ID>left_SIDE_window_heat</NODE_ID>
-				<ANIM_NAME>left_SIDE_window_heat</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<ID>1</ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_DEICE_Push_Windshield_Template">
-				<NODE_ID>left_FWD_window_heat</NODE_ID>
-				<ANIM_NAME>left_FWD_window_heat</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<ID>2</ID>				
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_DEICE_Push_Windshield_Template">
-				<NODE_ID>right_SIDE_window_heat</NODE_ID>
-				<ANIM_NAME>right_SIDE_window_heat</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<ID>3</ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_DEICE_Push_Windshield_Template">
-				<NODE_ID>right_FWD_window_heat</NODE_ID>
-				<ANIM_NAME>right_FWD_window_heat</ANIM_NAME>
-				<TYPE>BOEING</TYPE>
-				<ID>4</ID>
-			</UseTemplate>
-		</Component>
-		<Component ID="DOOR_PANEL">
-            <UseTemplate Name="DD_SWITCH_DOORPANEL_LOCK">
-                <NODE_ID>Cockpit_Door_Lock</NODE_ID>
-                <ANIM_NAME>Cockpit_Door_Lock</ANIM_NAME>
-                <INVERT_ANIM>1</INVERT_ANIM>
-            </UseTemplate>
-            <UseTemplate Name="DD_PUSH_DOORPANEL_OPEN">
-                <NODE_ID>PUSH_DOORPANEL_OPEN</NODE_ID>
-                <ANIM_NAME>PUSH_DOORPANEL_OPEN</ANIM_NAME>
-                <SEQ1_POWERED>(L:A32NX_ELEC_AC_2_BUS_IS_POWERED, Bool)</SEQ1_POWERED>
-                <SEQ2_POWERED>(L:A32NX_ELEC_AC_2_BUS_IS_POWERED, Bool)</SEQ2_POWERED>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Panel">
-			<OverrideTemplateParameters>
-				<PLANE_PREFIX>B747_8</PLANE_PREFIX>
-			</OverrideTemplateParameters>
-		<!-- AP Push Buttons -->
-			<DefaultTemplateParameters>
-				<SEQ1_EMISSIVE_CODE>1</SEQ1_EMISSIVE_CODE>
-				<SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:5</SIMVAR_POWER_SETTING>
-				<NO_SEQ2/>
-			</DefaultTemplateParameters>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_Autopilot_Template">
-				<AP_COUNT>3</AP_COUNT>
-				<ID>1</ID>
-				<NODE_ID>Autopilot_Master_L</NODE_ID>
-				<ANIM_NAME>Autopilot_Master_L</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Master_L_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TYPE>ONLY_IF_DISCONNECTED</TYPE>
-				<ALL_AP_ON_APPR>True</ALL_AP_ON_APPR>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_Autopilot_Template">
-				<AP_COUNT>3</AP_COUNT>
-				<ID>2</ID>
-				<NODE_ID>Autopilot_Master_C</NODE_ID>
-				<ANIM_NAME>Autopilot_Master_C</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Master_C_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TYPE>ONLY_IF_DISCONNECTED</TYPE>
-				<ALL_AP_ON_APPR>True</ALL_AP_ON_APPR>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_Autopilot_Template">
-				<AP_COUNT>3</AP_COUNT>
-				<ID>3</ID>
-				<NODE_ID>Autopilot_Master_R</NODE_ID>
-				<ANIM_NAME>Autopilot_Master_R</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Master_R_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TYPE>ONLY_IF_DISCONNECTED</TYPE>
-				<ALL_AP_ON_APPR>True</ALL_AP_ON_APPR>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_Disconnect_Template">
-				<NODE_ID>Autopilot_Disengage</NODE_ID>
-				<ANIM_NAME>Autopilot_Disengage</ANIM_NAME>
-				<NO_TEXT_EMISSIVE>True</NO_TEXT_EMISSIVE>
-				<NO_INDICATOR>True</NO_INDICATOR>
-				<TOGGLEABLE>True</TOGGLEABLE>
-				<RESET_XMLVARS>True</RESET_XMLVARS>
-				<AP_COUNT>3</AP_COUNT>
-				<INVERT_SWITCH_ON_CONDITION>True</INVERT_SWITCH_ON_CONDITION>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_FlightLevelChange_Template">
-				<NODE_ID>Autopilot_Flight_Level_Change</NODE_ID>
-				<ANIM_NAME>Autopilot_Flight_Level_Change</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Flight_Level_Change_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_Altitude_Template">
-				<NODE_ID>Autopilot_Altitude_Hold</NODE_ID>
-				<ANIM_NAME>Autopilot_Altitude_Hold</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Altitude_Hold_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-        	<UseTemplate Name="ASOBO_AUTOPILOT_Push_Heading_Template">
-				<NODE_ID>Autopilot_Heading_Hold</NODE_ID>
-				<ANIM_NAME>Autopilot_Heading_Hold</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Heading_Hold_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_Navigation_Template">
-				<NODE_ID>Autopilt_LNAV</NODE_ID>
-				<ANIM_NAME>Autopilt_LNAV</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilt_LNAV_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TOOLTIPID>%((A:AUTOPILOT NAV1 LOCK, bool))%{if}TT:COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_LNAV_ON%{else}TT:COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_LNAV_OFF%{end}</TOOLTIPID>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_Vertical_Navigation_Template">
-				<NODE_ID>Autopilt_VNAV</NODE_ID>
-				<ANIM_NAME>Autopilt_VNAV</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilt_VNAV_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_Localizer_Template">
-				<NODE_ID>Autopilot_Localizer</NODE_ID>
-				<ANIM_NAME>Autopilot_Localizer</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Localizer_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_Speed_Template">
-				<NODE_ID>Autopilot_Speed_Hold</NODE_ID>
-				<ANIM_NAME>Autopilot_Speed_Hold</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Speed_Hold_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<TOOLTIPID>%((L:AP_SPD_ACTIVE))%{if}TT:COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_SPD_ON%{else}TT:COCKPIT.TOOLTIPS.AUTOPILOT_PANEL_SPD_OFF%{end}</TOOLTIPID>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_Thrust_Template">
-				<NODE_ID>Autopilot_THR</NODE_ID>
-				<ANIM_NAME>Autopilot_THR</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_THR_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_VerticalSpeed_Template">
-				<NODE_ID>Autopilot_Vertical_Speed</NODE_ID>
-				<ANIM_NAME>Autopilot_Vertical_Speed</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Vertical_Speed_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>		
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="DD_AUTOPILOT_Push_Approach_Template">
-				<NODE_ID>Autopilot_Approach</NODE_ID>
-				<ANIM_NAME>Autopilot_Approach</ANIM_NAME>
-				<ACTIVE_NODE_ID>Autopilot_Approach_SEQ2</ACTIVE_NODE_ID>
-				<AUTOPILOT_PUSH_BUTTON_ON>autopilot_largepush_button_on</AUTOPILOT_PUSH_BUTTON_ON>
-				<AUTOPILOT_PUSH_BUTTON_OFF>autopilot_largepush_button_off</AUTOPILOT_PUSH_BUTTON_OFF>
-				<DISABLE_GPS_MODE>False</DISABLE_GPS_MODE>
-			</UseTemplate>		
-		<!-- AP Selector knobs -->
-			<UseTemplate Name="ASOBO_AUTOPILOT_Knob_Altitude_Template">
-				<NODE_ID>Autopilot_Altitude_sel</NODE_ID>
-				<ANIM_NAME_KNOB>Autopilot_Altitude_sel</ANIM_NAME_KNOB>
-				<ANIM_NAME_PUSH>knob_autopilot_alt_push</ANIM_NAME_PUSH>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Knob_SpeedMach_Template">
-				<NODE_ID>Autopilot_Speed_sel</NODE_ID>
-				<ANIM_NAME>Autopilot_Speed_sel</ANIM_NAME>
-				<ANIM_NAME_PUSH>knob_autopilot_speed_push</ANIM_NAME_PUSH>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Knob_Heading_Template">
-				<NODE_ID>Autopilot_Bank_Limiter</NODE_ID>
-				<ANIM_NAME_KNOB>Autopilot_Bank_Limiter</ANIM_NAME_KNOB>
-				<ANIM_NAME_PUSH>Autopilot_Heading_sel_push</ANIM_NAME_PUSH>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Knob_Bank_Limit_Template">
-				<NODE_ID>Autopilot_Heading_sel</NODE_ID>
-				<ANIM_NAME>Autopilot_Heading_sel</ANIM_NAME>
-				<SETTINGS_COUNT>5</SETTINGS_COUNT>
-				<COUNT>5</COUNT>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Knob_VerticalSpeed_Template">
-				<NODE_ID>Autopilot_VS_sel</NODE_ID>
-				<ANIM_NAME>Autopilot_VS_sel</ANIM_NAME>
-				<UP_DEC_DN_INC>True</UP_DEC_DN_INC>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_AUTOPILOT_Push_AutoThrottle_Template">
-				<NODE_ID>Autopilot_Autothrottle_Toggle</NODE_ID>
-				<ANIM_NAME>Autopilot_Autothrottle_Toggle</ANIM_NAME>
-				<TYPE>B747</TYPE>
-			</UseTemplate>
-		<!-- AP Screen Digits -->
-			<UseTemplate Name="Autopilot_Heading_1">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Heading_10">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Heading_100">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Altitude_100">
-			</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Altitude_1000">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Altitude_10000">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Speed_1">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Speed_10">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Speed_100">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_VS_100">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_VS_1000">
-    		</UseTemplate>
-			
-			<UseTemplate Name="Autopilot_VS_Plus">
-    		</UseTemplate>
-
-		</Component>
-		
-
-<!-- Guagues -->
-
-		<Component ID="Altitude">
-		<!-- Alttitude -->
-		    <UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
-      			<ANIM_NAME>ATL_10</ANIM_NAME>
-      			<NODE_ID>ALT_10</NODE_ID>
-      			<FEET>10</FEET>
-      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
-   			</UseTemplate>
-   			 <UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
-     			 <ANIM_NAME>ATL_100</ANIM_NAME>
-      			<NODE_ID>ALT_100</NODE_ID>
-      			<FEET>100</FEET>
-      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
-    		</UseTemplate>
-			<UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
-      			<ANIM_NAME>ATL_1000</ANIM_NAME>
-      			<NODE_ID>ALT_1000</NODE_ID>
-     			 <FEET>1000</FEET>
-      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
-    		</UseTemplate>
-			<UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
-      			<ANIM_NAME>ATL_10000</ANIM_NAME>
-      			<NODE_ID>ALT_10000</NODE_ID>
-      			<FEET>10000</FEET>
-      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
-   			</UseTemplate>
-			<UseTemplate Name="Needle_Altitude_1000">
-      			<ANIM_NAME>ALT_Needle</ANIM_NAME>
-   			</UseTemplate>
-	    </Component>
-
-		<Component ID="Altitude_Needle1" Node="Altitude_Needle1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Altitude_Needle2" Node="Altitude_Needle2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Altitude_Needle3" Node="Altitude_Needle3">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Airspeed_Needle" Node="Airspeed_Needle">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>Airspeed_Needle</ANIM_NAME>
-                <ANIM_LENGTH>45</ANIM_LENGTH>
-                <ANIM_CODE>(A:AIRSPEED INDICATED, knots) 10 /</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Airspeed_Needle_2" Node="Airspeed_Needle_2">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>Airspeed_Needle</ANIM_NAME>
-                <ANIM_LENGTH>45</ANIM_LENGTH>
-                <ANIM_CODE>(A:AIRSPEED INDICATED, knots) 10 /</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Needles">
-			<UseTemplate Name="Speed_Barber_Pole">
-    		</UseTemplate>
-			<UseTemplate Name="Speed_Barber_Pole_2">
-    		</UseTemplate>
-			<UseTemplate Name="Airspeed_Knots_1">
-    		</UseTemplate>
-			<UseTemplate Name="Airspeed_Knots_10">
-    		</UseTemplate>
-			<UseTemplate Name="Airspeed_Knots_100">
-    		</UseTemplate>
-			<UseTemplate Name="Needle_VSI">
-    		</UseTemplate>
-			<UseTemplate Name="Pressurization_Cabin_Altitude">
-    		</UseTemplate>
-			<UseTemplate Name="Pressurization_Altitude_Rate">
-    		</UseTemplate>
-			<UseTemplate Name="Pressurization_Diffrence">
-    		</UseTemplate>
-       </Component>
-
-
-		<Component ID="Airspeed_MACH_100_1" Node="Airspeed_MACH_100_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_MACH_10_1" Node="Airspeed_MACH_10_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_MACH_1_1" Node="Airspeed_MACH_1_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_KNT_100_1" Node="Airspeed_KNT_100_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_KNT_10_1" Node="Airspeed_KNT_10_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_KNT_1_1" Node="Airspeed_KNT_1_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Airspeed_MACH_100_2" Node="Airspeed_MACH_100_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_MACH_10_2" Node="Airspeed_MACH_10_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_MACH_1_2" Node="Airspeed_MACH_1_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_KNT_100_2" Node="Airspeed_KNT_100_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_KNT_10_2" Node="Airspeed_KNT_10_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Airspeed_KNT_1_2" Node="Airspeed_KNT_1_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Speed_Barber_Pole" Node="Speed_Barber_Pole">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Speed_Needle" Node="Speed_Needle">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Speed_Barber_Pole_1" Node="Speed_Barber_Pole_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<!-- Altitude InHg 1 -->
-
-		<Component ID="InHg_1000" Node="InHg_1000">
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp1</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="InHg_100" Node="InHg_100">		
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp2</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 % flr 10 * 10 * flr</ANIM_CODE>
-                </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="InHg_10" Node="InHg_10">            
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp3</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 * 10 % flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-		
-		<Component ID="InHg_1" Node="InHg_1">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp4</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 * 10 % flr 10 * 10 *</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!-- Altitude InHg 2 -->
-
-		<Component ID="InHg_1000_2" Node="InHg_1000_2">
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp1</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="InHg_100_2" Node="InHg_100_2">		
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp2</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 % flr 10 * 10 * flr</ANIM_CODE>
-                </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="InHg_10_2" Node="InHg_10_2">            
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp3</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 * 10 % flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-		
-		<Component ID="InHg_1_2" Node="InHg_1_2">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp4</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 * 10 % flr 10 * 10 *</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!-- Altitude InHg 3 -->
-
-		<Component ID="InHg_1000_3" Node="InHg_1000_3">
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp1</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="InHg_100_3" Node="InHg_100_3">		
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp2</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 % flr 10 * 10 * flr</ANIM_CODE>
-                </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="InHg_10_3" Node="InHg_10_3">            
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp3</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 * 10 % flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-		
-		<Component ID="InHg_1_3" Node="InHg_1_3">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>inHp4</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 * 10 % flr 10 * 10 *</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!-- Altitude MB 1 -->
-
-		<Component ID="MB_1000_2" Node="MB_1000_2">
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Thousand</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 10000 % 1000 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="MB_100_2" Node="MB_100_2">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Hundereds</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 1000 % 100 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="MB_10_2" Node="MB_10_2">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Ten</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!-- Altitude MB 2 -->
-
-		<Component ID="MB_1000_3" Node="MB_1000_3">
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Thousand</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 10000 % 1000 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="MB_100_3" Node="MB_100_3">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Hundereds</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 1000 % 100 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="MB_10_3" Node="MB_10_3">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Ten</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!-- Altitude MB 3 -->
-
-		<Component ID="MB_1000" Node="MB_1000">
-			<UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Thousand</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 10000 % 1000 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="MB_100" Node="MB_100">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Hundereds</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 1000 % 100 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<Component ID="MB_10" Node="MB_10">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>MB_Ten</ANIM_NAME>
-                <ANIM_LAG>100</ANIM_LAG>
-                <ANIM_WRAP>True</ANIM_WRAP>
-                <ANIM_LENGTH>1000</ANIM_LENGTH>
-                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!-- Altitude MB number that dont move lmao -->
-
-		<Component ID="MB_1_3" Node="MB_1_3">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="MB_1_2" Node="MB_1_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="MB_1" Node="MB_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<!-- Altitude Number 1 -->
-
-		<Component ID="ATL_10000" Node="ATL_10000">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_1000" Node="ATL_1000">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_100" Node="ATL_100">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_10" Node="ATL_100">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<!-- Altitude Number 2 -->
-
-		<Component ID="ATL_10000_2" Node="ATL_10000_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_1000_2" Node="ATL_1000_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_100_2" Node="ATL_100_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_10_2" Node="ATL_10_2">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<!-- Altitude Number 3 -->
-
-		<Component ID="ATL_10000_3" Node="ATL_10000_3">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_1000_3" Node="ATL_1000_3">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_100_3" Node="ATL_100_3">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="ATL_10_3" Node="ATL_10_3">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-<!-- Flap Gauges -->
-
- 		<Component ID="Flap_Needle" Node="Flap_Needle">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>Flap_Needle</ANIM_NAME>
-                <ANIM_LENGTH>31</ANIM_LENGTH>
-                <ANIM_CODE>(A:TRAILING EDGE FLAPS LEFT PERCENT, percent) (A:TRAILING EDGE FLAPS RIGHT PERCENT, percent) </ANIM_CODE>
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:3, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-		</Component>
-           
-   		<Component ID="Brake_Press" Node="Brake_Press">
-            <UseTemplate Name="BrakesPsi_Indicator_Animation">
-            </UseTemplate>
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:3, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-<!-- Basic Gauges -->
-
-		<Component ID="Overhead_Guage" Node="Overhead_Guage">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:3, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Compass" Node="Compass">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:3, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Altitude_GaugeBase" Node="Altitude_GaugeBase">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Gauge_Base_1" Node="Gauge_Base_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:3, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Compass" Node="Compass">
-			<UseTemplate Name="Compass_Disc">
-			</UseTemplate>	
-		</Component>
-
-		<Component ID="PAX">
-			<!-- Pax Signs -->
-			<UseTemplate Name="DD_GT_Switch_Dummy">
-        	    <NODE_ID>EMR_Light_Switch</NODE_ID>
-    	        <PART_ID>Emergency_Exit_Switch</PART_ID>
-            	<ANIM_NAME>EMR_Light_Switch</ANIM_NAME>
-				<SEQ2_NODE_ID>ARMED_Exit_Light</SEQ2_NODE_ID>
-        	    <NUM_STATES>3</NUM_STATES>
-    	        <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
-	            <LIGHT_TYPE>EMER_EXIT</LIGHT_TYPE>
-        	    <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-    	        <SWITCH_POSITION_VAR>XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position</SWITCH_POSITION_VAR>
-            	<ANIMTIP_1_ON_PERCENT>0.5</ANIMTIP_1_ON_PERCENT>
-            	<ANIMTIP_0>Emergency exit light off</ANIMTIP_0>
-        	    <ANIMTIP_1>Emergency exit light armd</ANIMTIP_1>
-                <ANIMTIP_2>Emergency exit light on</ANIMTIP_2>
-                <WWISE_EVENT>lswitch</WWISE_EVENT>
-            </UseTemplate>
- 			<UseTemplate Name="DD_GT_Switch_Dummy">
-                <NODE_ID>Smoking_Light</NODE_ID>
-                <PART_ID>Smoking_Switch</PART_ID>
-                <ANIM_NAME>Smoking_Light</ANIM_NAME>
-                <NUM_STATES>3</NUM_STATES>
-                <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
-                <INVERT_ANIM>True</INVERT_ANIM>
-                <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-                <SWITCH_POSITION_VAR>XMLVAR_SWITCH_OVHD_INTLT_NOSMOKING_Position</SWITCH_POSITION_VAR>
-                <LIGHT_TYPE>NO_SMOKING</LIGHT_TYPE>
-                <ANIMTIP_1_ON_PERCENT>0.5</ANIMTIP_1_ON_PERCENT>
-                <ANIMTIP_0>No smoking sign on</ANIMTIP_0>
-                <ANIMTIP_1>No smoking sign auto</ANIMTIP_1>
-                <ANIMTIP_2>No smoking sign off</ANIMTIP_2>
-                <WWISE_EVENT>lswitch</WWISE_EVENT>
-            </UseTemplate>
-			<UseTemplate Name="ASOBO_AIRLINER_Switch_Seatbelts_Template">
+				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
+				<NODE_ID>APU_Starter</NODE_ID>
+				<ANIM_NAME>APU_Starter</ANIM_NAME>
+				<EMISSIVE_NODE_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</EMISSIVE_NODE_SIMVAR_POWER_SETTING>
 				<SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-				<SWITCH_POSITION_VAR>XMLVAR_SeatBelts</SWITCH_POSITION_VAR>
-				<NODE_ID>Seatbelt_Light</NODE_ID>
-				<ANIM_NAME>Seatbelt_Light</ANIM_NAME>
-				<ID>1</ID>
-				<TYPE>ONOFF</TYPE>
-				<SWITCH_DIRECTION>Horizontal</SWITCH_DIRECTION>
-				<ARROW_TYPE>Curved</ARROW_TYPE>
+				<SWITCH_POSITION_VAR>XMLVAR_APU_StarterKnob_Pos</SWITCH_POSITION_VAR>
+				<ACTIVE_FUEL_PUMP_ON_RPM>17</ACTIVE_FUEL_PUMP_ON_RPM>
 			</UseTemplate>
-
-            <UseTemplate Name="DD_AIRLINER_SIGNS_LIGHT_Template">
-                <NODE_ID>PUSH_OVHD_SIGNS</NODE_ID>
-                <SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-                <SEQ1_CODE_DRIVES_VISIBILITY>False</SEQ1_CODE_DRIVES_VISIBILITY>
-                <SEQ2_CODE_DRIVES_VISIBILITY>False</SEQ2_CODE_DRIVES_VISIBILITY>
-                <SEQ_POWERED>(A:ELECTRICAL MASTER BATTERY, Bool)</SEQ_POWERED>
-            </UseTemplate>
-
-			<!-- Cabin Call -->
-		   <UseTemplate Name="DD_Push_Held">
-            	<NODE_ID>Cabin_Call_FWD</NODE_ID>
-                <PART_ID>Cabin_Call_FWD</PART_ID>
-	            <HOLD_SIMVAR>L:Cabin_Call_FWD</HOLD_SIMVAR>
-            </UseTemplate>
-            <UseTemplate Name="DD_Push_Held">
-                <NODE_ID>Cabin_Call_MID</NODE_ID>
-            	<HOLD_SIMVAR>L:Cabin_Call_MID</HOLD_SIMVAR>
-            </UseTemplate>
-            <UseTemplate Name="DD_Push_Held">
-                <NODE_ID>Cabin_Call_AFT</NODE_ID>
-                <HOLD_SIMVAR>L:Cabin_Call_AFT</HOLD_SIMVAR>
-            </UseTemplate>
-			<!-- Pax Temputure -->
-            <UseTemplate Name="DD_Aircond_Knob_Template">
-                <ID>1</ID>
-                <ANIM_CODE>100</ANIM_CODE>
-                <ANIM_NAME>Aircon_Cockpit</ANIM_NAME>
-                <NODE_ID>Aircon_Cockpit</NODE_ID>
-            </UseTemplate>
-        	<UseTemplate Name="DD_Aircond_Knob_Template">
-                <ID>2</ID>
-                <ANIM_CODE>100</ANIM_CODE>
-                <ANIM_NAME>Aircon_fwdcabin</ANIM_NAME>
-                <NODE_ID>Aircon_fwdcabin</NODE_ID>
-            </UseTemplate>
-        	<UseTemplate Name="DD_Aircond_Knob_Template">
-                <ID>3</ID>
-                <ANIM_CODE>100</ANIM_CODE>
-                <ANIM_NAME>Aircon_aftcabin</ANIM_NAME>
-                <NODE_ID>Aircon_aftcabin</NODE_ID>
-            </UseTemplate>
-		</Component>
-
-		<!-- Overhead indicator lights -->
-
-
-		 <!-- Pedistal Panel Lights --> 
-		<Component ID="Parking_Brake_Panel_Light" Node="Parking_Brake_Panel_Light">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:4, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-				
-
-<!-- AP Lights -->
-		<Component ID="Speed_100" Node="Speed_100">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Speed_10" Node="Speed_10">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>				  
-		<Component ID="Speed_1" Node="Speed_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Heading_100" Node="Heading_100">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Heading_10" Node="Heading_10">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Heading_1" Node="Heading_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="VS_plus" Node="VS_plus">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="VS_1000" Node="VS_1000">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="VS_100" Node="VS_100">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="VS_10" Node="VS_10">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="VS_1" Node="VS_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Altitude_10000" Node="Altitude_10000">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Altitude_1000" Node="Altitude_1000">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Altitude_100" Node="Altitude_100">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Altitude_10" Node="Altitude_10">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Altitude_1" Node="Altitude_1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:5, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Autopilot_THR_SEQ1" Node="Autopilot_THR_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Heading_Hold_SEQ1" Node="Autopilot_Heading_Hold_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Speed_Hold_SEQ1" Node="Autopilot_Speed_Hold_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Flight_Level_Change_SEQ1" Node="Autopilot_Flight_Level_Change_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilt_VNAV_SEQ1" Node="Autopilt_VNAV_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilt_LNAV_SEQ1" Node="Autopilt_LNAV_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Vertical_Speed_SEQ1" Node="Autopilot_Vertical_Speed_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Altitude_Hold_SEQ1" Node="Autopilot_Altitude_Hold_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Approach_SEQ1" Node="Autopilot_Approach_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Localizer_SEQ1" Node="Autopilot_Localizer_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Master_C_SEQ1" Node="Autopilot_Master_C_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Master_R_SEQ1" Node="Autopilot_Master_R_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.21 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Autopilot_Master_L_SEQ1" Node="Autopilot_Master_L_SEQ1">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="Main_BAT_DISCH">
-			<UseTemplate Name="ASOBO_SAFETY_Indicator_Template">
-				<NODE_ID>Main_BAT_DISCH</NODE_ID>
-				<EMISSIVE_CODE>
-					(A:SIM ON GROUND, Bool) if{
-					(A:ELECTRICAL BATTERY LOAD, Amps) 0 &gt;
-					} els{
-					(A:ELECTRICAL MASTER BATTERY, Bool) !
-					}
-				</EMISSIVE_CODE>
-			</UseTemplate>
-  		</Component>
-
-
-		<Component ID="Standby_Power_Off" Node="Standby_Power_Off">
+			
+		    <UseTemplate Name="ASOBO_ELECTRICAL_Indicator_APU_Ready_Template">
+			    <NODE_ID>APU_Starter_SQ2</NODE_ID>
+			    <MIN_PCT_RPM>17</MIN_PCT_RPM>
+		    </UseTemplate>
+	    </Component>
+<!-- Fuel Panel Button Decal Lights -->
+				<Component ID="FUEL_Push_Pump_Center_1_SQ1" Node="FUEL_Push_Pump_Center_1_SQ1">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY:1, Bool) (L:XMLVAR_StandbyPower_Selector, Bool) &amp; if{ 0 } els{ 1 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-
-		<Component ID="Oil_Pressure_Main" Node="Oil_Pressure_Main">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(A:GENERAL ENG OIL PRESSURE:0, psi) 50 &lt; (A:ELECTRICAL MASTER BATTERY, bool) &amp;&amp;</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:2, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-
-		<Component ID="Oil_Press_R" Node="Oil_Press_R">
-   			<Visibility>
+		<Component ID="FUEL_Push_Pump_Center_2_SQ1" Node="FUEL_Push_Pump_Center_2_SQ1">
+    		<Visibility>
       			<Parameter>
-        			<Code>(A:GENERAL ENG OIL PRESSURE:2, psi) 50 &lt; (A:ELECTRICAL MASTER BATTERY, bool) &amp;&amp;</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:13, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-
-  		<Component ID="Oil_Press_L" Node="Oil_Press_L">
+		<Component ID="FUEL_Push_Pump_1_AFT_SQ1" Node="FUEL_Push_Pump_1_AFT_SQ1">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:GENERAL ENG OIL PRESSURE:2, psi) 50 &lt; (A:ELECTRICAL MASTER BATTERY, bool) &amp;&amp;</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:4, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-
-		<Component ID="Parking_Brake_Indicator" Node="Parking_Brake_Indicator">
+		<Component ID="FUEL_Push_Pump_1_FRT_SQ1" Node="FUEL_Push_Pump_1_FRT_SQ1">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:BRAKE PARKING INDICATOR, Bool) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-
-		<!--<Component ID="ARMED_Exit_Light" Node="ARMED_Exit_Light">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(L:XMLVAR_SWITCH_OVHD_INTLT_EMEREXIT_Position:1, Bool) 50 &lt; (A:ELECTRICAL MASTER BATTERY, bool) &amp;&amp;</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:8, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
-  		</Component>-->
-
-		<Component ID="RSVR_1" Node="RSVR_1">
+  		</Component>
+		<Component ID="FUEL_Push_Pump_2_AFT_SQ1" Node="FUEL_Push_Pump_2_AFT_SQ1">
     		<Visibility>
       			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:RECIP ENG COOLANT RESERVOIR PERCENT:1, Percent) &amp; if{ 1 } els{ 0 }</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:15, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
+			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+                <EMISSIVE_CODE>1</EMISSIVE_CODE>
+            </UseTemplate>
   		</Component>
-		<Component ID="RSVR_2" Node="RSVR_2">
+		<Component ID="FUEL_Push_Pump_2_FRT_SQ1" Node="FUEL_Push_Pump_2_FRT_SQ1">
     		<Visibility>
       			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:RECIP ENG COOLANT RESERVOIR PERCENT:2, Percent) &amp; if{ 1 } els{ 0 }</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:19, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
+			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+                <EMISSIVE_CODE>1</EMISSIVE_CODE>
+            </UseTemplate>
   		</Component>
-		<Component ID="RSVR_3" Node="RSVR_3">
+		<Component ID="FUEL_Push_Pump_Center_1_SQ2" Node="FUEL_Push_Pump_Center_1_SQ2">
     		<Visibility>
       			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:RECIP ENG COOLANT RESERVOIR PERCENT:3, Percent) &amp; if{ 1 } els{ 0 }</Code>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:1, Bool) &amp; if{ 1 } els{ 0 }</Code>
       			</Parameter>
     		</Visibility>
-  		</Component>
-
-		<Component ID="Outer_Maker" Node="Outer_Maker">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:MARKER BEACON STATE:1, Enum) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-  		</Component>
-
-		<Component ID="Middle_Maker" Node="Middle_Maker">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:MARKER BEACON STATE:2, Enum) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-  		</Component>
-
-		<Component ID="Inner_Maker" Node="Inner_Maker">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:MARKER BEACON STATE:3, Enum) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-  		</Component>
-
-		<Component ID="Light_Main_Door" Node="Light_Main_Door">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:INTERACTIVE POINT OPEN:0, Percent over 100) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-            <UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
+			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-		<Component ID="Light_EMER_Door" Node="Light_EMER_Door">
+		<Component ID="FUEL_Push_Pump_Center_2_SQ2" Node="FUEL_Push_Pump_Center_2_SQ2">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:INTERACTIVE POINT OPEN:2, Percent over 100) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:2, Bool) &amp; if{ 1 } els{ 0 }</Code>
+      			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-		<Component ID="Light_Cargo_Door" Node="Light_Cargo_Door">
+		<Component ID="FUEL_Push_Pump_1_AFT_SQ2" Node="FUEL_Push_Pump_1_AFT_SQ2">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:INTERACTIVE POINT OPEN:1, Percent over 100) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:3, Bool) &amp; if{ 1 } els{ 0 }</Code>
+      			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-		<Component ID="Light_Access_Door" Node="Light_Access_Door">
+		<Component ID="FUEL_Push_Pump_1_FRT_SQ2" Node="FUEL_Push_Pump_1_FRT_SQ2">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:INTERACTIVE POINT OPEN:1, Percent over 100) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:4, Bool) &amp; if{ 1 } els{ 0 }</Code>
+      			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-		<Component ID="Fuel_Config" Node="Fuel_Config">
+		<Component ID="FUEL_Push_Pump_2_AFT_SQ2" Node="FUEL_Push_Pump_2_AFT_SQ2">
     		<Visibility>
       			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:FUEL TANK CENTER LEVEL, Percent over 100) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
-    		</Visibility>
-  		</Component>
-
-		<Component ID="AC_BUS_OFF" Node="AC_BUS_OFF">
-    		<Visibility>
-      			<Parameter>
-        			<Code>(A:ELECTRICAL MASTER BATTERY, Bool) (A:EXTERNAL POWER CONNECTION ON, Bool) &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:5, Bool) &amp; if{ 1 } els{ 0 }</Code>
+      			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-
-		<Component ID="Overhead_Panel_Decals" Node="Overhead_Panel_Decals">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:3, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="AP_Decals" Node="AP_Decals">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:3, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="MCDU_L">
-			<DefaultTemplateParameters>
-				<SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:3</SIMVAR_POWER_SETTING>
-			</DefaultTemplateParameters>
-        </Component>
-
-		<Component ID="L_1_Decal" Node="L_1_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:1, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_2_Decal" Node="L_2_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_3_Decal" Node="L_3_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_4_Decal" Node="L_4_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_5_Decal" Node="L_5_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_6_Decal" Node="L_6_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_7_Decal" Node="L_7_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_8_Decal" Node="L_8_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_9_Decal" Node="L_9_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_0_Decal" Node="L_0_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Period_Decal" Node="L_Period_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_OFST_Decal" Node="L_OFST_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_A_Decal" Node="L_A_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_B_Decal" Node="L_B_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_C_Decal" Node="L_C_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_D_Decal" Node="L_D_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_E_Decal" Node="L_E_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_F_Decal" Node="L_F_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_G_Decal" Node="L_G_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_H_Decal" Node="L_H_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_I_Decal" Node="L_I_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_J_Decal" Node="L_J_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_K_Decal" Node="L_K_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_L_Decal" Node="L_L_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_M_Decal" Node="L_M_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_N_Decal" Node="L_N_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_O_Decal" Node="L_O_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_P_Decal" Node="L_P_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Q_Decal" Node="L_Q_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_R_Decal" Node="L_R_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_S_Decal" Node="L_S_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_T_Decal" Node="L_T_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_U_Decal" Node="L_U_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_V_Decal" Node="L_V_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_W_Decal" Node="L_W_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_X_Decal" Node="L_X_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Y_Decal" Node="L_Y_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Z_Decal" Node="L_Z_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_SP_Decal" Node="L_SP_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_DEL_Decal" Node="L_DEL_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Slash_Decal" Node="L_Slash_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_CLR_Decal" Node="L_CLR_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_CLB_Decal" Node="L_CLB_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>	
-		<Component ID="L_DES_Decal" Node="L_DES_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_CRZ_Decal" Node="L_CRZ_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_CLR_Decal" Node="L_CLR_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_EXEC_Decal" Node="L_EXEC_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_PROG_Decal" Node="L_PROG_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Hold_Decal" Node="L_Hold_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_DEP_Decal" Node="L_DEP_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_LEGS_Decal" Node="L_LEGS_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_DIR_Decal" Node="L_DIR_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Menu_Decal" Node="L_Menu_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Fix_Decal" Node="L_Fix_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Prev_Decal" Node="L_Prev_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Next_Decal" Node="L_Next_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_RTE_Decal" Node="L_RTE_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="L_Init_Decal" Node="L_Init_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		
-
-		<Component ID="R_1_Decal" Node="R_1_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:1, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_2_Decal" Node="R_2_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_3_Decal" Node="R_3_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_4_Decal" Node="R_4_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_5_Decal" Node="R_5_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_6_Decal" Node="R_6_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_7_Decal" Node="R_7_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_8_Decal" Node="R_8_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_9_Decal" Node="R_9_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_0_Decal" Node="R_0_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Period_Decal" Node="R_Period_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_OFST_Decal" Node="R_OFST_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_A_Decal" Node="R_A_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_B_Decal" Node="R_B_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_C_Decal" Node="R_C_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_D_Decal" Node="R_D_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_E_Decal" Node="R_E_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_F_Decal" Node="R_F_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_G_Decal" Node="R_G_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_H_Decal" Node="R_H_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_I_Decal" Node="R_I_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_J_Decal" Node="R_J_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_K_Decal" Node="R_K_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_R_Decal" Node="R_R_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_M_Decal" Node="R_M_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_N_Decal" Node="R_N_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_O_Decal" Node="R_O_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_P_Decal" Node="R_P_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Q_Decal" Node="R_Q_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_R_Decal" Node="R_R_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_S_Decal" Node="R_S_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_T_Decal" Node="R_T_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_U_Decal" Node="R_U_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_V_Decal" Node="R_V_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_W_Decal" Node="R_W_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_X_Decal" Node="R_X_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Y_Decal" Node="R_Y_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Z_Decal" Node="R_Z_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_SP_Decal" Node="R_SP_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_DER_Decal" Node="R_DER_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Slash_Decal" Node="R_Slash_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_CLR_Decal" Node="R_CLR_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_CLB_Decal" Node="R_CLB_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>	
-		<Component ID="R_DES_Decal" Node="R_DES_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_CRZ_Decal" Node="R_CRZ_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_CLR_Decal" Node="R_CLR_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_EXEC_Decal" Node="R_EXEC_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_PROG_Decal" Node="R_PROG_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Hold_Decal" Node="R_Hold_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_DEP_Decal" Node="R_DEP_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_LEGS_Decal" Node="R_LEGS_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_DIR_Decal" Node="R_DIR_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Menu_Decal" Node="R_Menu_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Fix_Decal" Node="R_Fix_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Prev_Decal" Node="R_Prev_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Next_Decal" Node="R_Next_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_RTE_Decal" Node="R_RTE_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="R_Init_Decal" Node="R_Init_Decal">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:4, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-
-		<Component ID="MCDU_1">
-			<UseTemplate Name="ASOBO_FMC_B747">
-				<NODE_ID_SCREEN>SCREEN_FMC1</NODE_ID_SCREEN>
-				<CIRCUIT_ID>27</CIRCUIT_ID>
-				<ID>1</ID>
-				<SEQ1_SUFFIX>_Decal</SEQ1_SUFFIX>
-				<NODE_ID_INIT>cdu1_push_INIT</NODE_ID_INIT>
-				<ANIM_NAME_INIT>cdu1_push_INIT</ANIM_NAME_INIT>
-				<NODE_ID_RTE>cdu1_push_RTE</NODE_ID_RTE>
-				<ANIM_NAME_RTE>cdu1_push_RTE</ANIM_NAME_RTE>
-				<NODE_ID_DEP_ARR>cdu1_push_DEP_ARR</NODE_ID_DEP_ARR>
-				<ANIM_NAME_DEP_ARR>cdu1_push_DEP_ARR</ANIM_NAME_DEP_ARR>
-				<NODE_ID_ATC>cdu1_push_ATC</NODE_ID_ATC>
-				<ANIM_NAME_ATC>cdu1_push_ATC</ANIM_NAME_ATC>
-				<NODE_ID_VNAV>cdu1_push_VNAV</NODE_ID_VNAV>
-				<ANIM_NAME_VNAV>cdu1_push_VNAV</ANIM_NAME_VNAV>
-				<NODE_ID_BRT_DIM>cdu1_push_BRT</NODE_ID_BRT_DIM>
-				<ANIM_NAME_BRT_DIM>cdu1_push_BRT</ANIM_NAME_BRT_DIM>
-				<NODE_ID_BRT_DIM_SEQ1>btn_CDU1_BRT_DECAL</NODE_ID_BRT_DIM_SEQ1>
-				<NODE_ID_FIX>cdu1_push_FIX</NODE_ID_FIX>
-				<ANIM_NAME_FIX>cdu1_push_FIX</ANIM_NAME_FIX>
-				<NODE_ID_LEGS>cdu1_push_LEGS</NODE_ID_LEGS>
-				<ANIM_NAME_LEGS>cdu1_push_LEGS</ANIM_NAME_LEGS>
-				<NODE_ID_HOLD>cdu1_push_HOLD</NODE_ID_HOLD>
-				<ANIM_NAME_HOLD>cdu1_push_HOLD</ANIM_NAME_HOLD>
-				<NODE_ID_FMC_COMM>cdu1_push_FMC_COMM</NODE_ID_FMC_COMM>
-				<ANIM_NAME_FMC_COMM>cdu1_push_FMC_COMM</ANIM_NAME_FMC_COMM>
-				<NODE_ID_PROG>cdu1_push_PROG</NODE_ID_PROG>
-				<ANIM_NAME_PROG>cdu1_push_PROG</ANIM_NAME_PROG>
-				<NODE_ID_EXEC>cdu1_push_EXEC</NODE_ID_EXEC>
-				<ANIM_NAME_EXEC>cdu1_push_EXEC</ANIM_NAME_EXEC>
-				<NODE_ID_MENU>cdu1_push_MENU</NODE_ID_MENU>
-				<ANIM_NAME_MENU>cdu1_push_MENU</ANIM_NAME_MENU>
-				<NODE_ID_NAV_RAD>cdu1_push_NAV_RAD</NODE_ID_NAV_RAD>
-				<ANIM_NAME_NAV_RAD>cdu1_push_NAV_RAD</ANIM_NAME_NAV_RAD>
-				<NODE_ID_PREV_PAGE>cdu1_push_PAGE_PREV</NODE_ID_PREV_PAGE>
-				<ANIM_NAME_PREV_PAGE>cdu1_push_PAGE_PREV</ANIM_NAME_PREV_PAGE>
-				<NODE_ID_NEXT_PAGE>cdu1_push_PAGE_NEXT</NODE_ID_NEXT_PAGE>
-				<ANIM_NAME_NEXT_PAGE>cdu1_push_PAGE_NEXT</ANIM_NAME_NEXT_PAGE>
-				<NODE_ID_SP>cdu1_push_SP</NODE_ID_SP>
-				<ANIM_NAME_SP>cdu1_push_SP</ANIM_NAME_SP>
-				<NODE_ID_DEL>cdu1_push_DEL</NODE_ID_DEL>
-				<ANIM_NAME_DEL>cdu1_push_DEL</ANIM_NAME_DEL>
-				<NODE_ID_CLR>cdu1_push_CLR</NODE_ID_CLR>
-				<ANIM_NAME_CLR>cdu1_push_CLR</ANIM_NAME_CLR>
-				<NODE_ID_DIV>cdu1_push_DIV</NODE_ID_DIV>
-				<ANIM_NAME_DIV>cdu1_push_DIV</ANIM_NAME_DIV>
-				<NODE_ID_L1>cdu1_push_L1</NODE_ID_L1>
-				<ANIM_NAME_L1>cdu1_push_L1</ANIM_NAME_L1>
-				<NODE_ID_L2>cdu1_push_L2</NODE_ID_L2>
-				<ANIM_NAME_L2>cdu1_push_L2</ANIM_NAME_L2>
-				<NODE_ID_L3>cdu1_push_L3</NODE_ID_L3>
-				<ANIM_NAME_L3>cdu1_push_L3</ANIM_NAME_L3>
-				<NODE_ID_L4>cdu1_push_L4</NODE_ID_L4>
-				<ANIM_NAME_L4>cdu1_push_L4</ANIM_NAME_L4>
-				<NODE_ID_L5>cdu1_push_L5</NODE_ID_L5>
-				<ANIM_NAME_L5>cdu1_push_L5</ANIM_NAME_L5>
-				<NODE_ID_L6>cdu1_push_L6</NODE_ID_L6>
-				<ANIM_NAME_L6>cdu1_push_L6</ANIM_NAME_L6>
-				<NODE_ID_R1>cdu1_push_R1</NODE_ID_R1>
-				<ANIM_NAME_R1>cdu1_push_R1</ANIM_NAME_R1>
-				<NODE_ID_R2>cdu1_push_R2</NODE_ID_R2>
-				<ANIM_NAME_R2>cdu1_push_R2</ANIM_NAME_R2>
-				<NODE_ID_R3>cdu1_push_R3</NODE_ID_R3>
-				<ANIM_NAME_R3>cdu1_push_R3</ANIM_NAME_R3>
-				<NODE_ID_R4>cdu1_push_R4</NODE_ID_R4>
-				<ANIM_NAME_R4>cdu1_push_R4</ANIM_NAME_R4>
-				<NODE_ID_R5>cdu1_push_R5</NODE_ID_R5>
-				<ANIM_NAME_R5>cdu1_push_R5</ANIM_NAME_R5>
-				<NODE_ID_R6>cdu1_push_R6</NODE_ID_R6>
-				<ANIM_NAME_R6>cdu1_push_R6</ANIM_NAME_R6>
-				<NODE_ID_A>cdu1_push_A</NODE_ID_A>
-				<ANIM_NAME_A>cdu1_push_A</ANIM_NAME_A>
-				<NODE_ID_B>cdu1_push_B</NODE_ID_B>
-				<ANIM_NAME_B>cdu1_push_B</ANIM_NAME_B>
-				<NODE_ID_C>cdu1_push_C</NODE_ID_C>
-				<ANIM_NAME_C>cdu1_push_C</ANIM_NAME_C>
-				<NODE_ID_D>cdu1_push_D</NODE_ID_D>
-				<ANIM_NAME_D>cdu1_push_D</ANIM_NAME_D>
-				<NODE_ID_E>cdu1_push_E</NODE_ID_E>
-				<ANIM_NAME_E>cdu1_push_E</ANIM_NAME_E>
-				<NODE_ID_F>cdu1_push_F</NODE_ID_F>
-				<ANIM_NAME_F>cdu1_push_F</ANIM_NAME_F>
-				<NODE_ID_G>cdu1_push_G</NODE_ID_G>
-				<ANIM_NAME_G>cdu1_push_G</ANIM_NAME_G>
-				<NODE_ID_H>cdu1_push_H</NODE_ID_H>
-				<ANIM_NAME_H>cdu1_push_H</ANIM_NAME_H>
-				<NODE_ID_I>cdu1_push_I</NODE_ID_I>
-				<ANIM_NAME_I>cdu1_push_I</ANIM_NAME_I>
-				<NODE_ID_J>cdu1_push_J</NODE_ID_J>
-				<ANIM_NAME_J>cdu1_push_J</ANIM_NAME_J>
-				<NODE_ID_K>cdu1_push_K</NODE_ID_K>
-				<ANIM_NAME_K>cdu1_push_K</ANIM_NAME_K>
-				<NODE_ID_L>cdu1_push_L</NODE_ID_L>
-				<ANIM_NAME_L>cdu1_push_L</ANIM_NAME_L>
-				<NODE_ID_M>cdu1_push_M</NODE_ID_M>
-				<ANIM_NAME_M>cdu1_push_M</ANIM_NAME_M>
-				<NODE_ID_N>cdu1_push_N</NODE_ID_N>
-				<ANIM_NAME_N>cdu1_push_N</ANIM_NAME_N>
-				<NODE_ID_O>cdu1_push_O</NODE_ID_O>
-				<ANIM_NAME_O>cdu1_push_O</ANIM_NAME_O>
-				<NODE_ID_P>cdu1_push_P</NODE_ID_P>
-				<ANIM_NAME_P>cdu1_push_P</ANIM_NAME_P>
-				<NODE_ID_Q>cdu1_push_Q</NODE_ID_Q>
-				<ANIM_NAME_Q>cdu1_push_Q</ANIM_NAME_Q>
-				<NODE_ID_R>cdu1_push_R</NODE_ID_R>
-				<ANIM_NAME_R>cdu1_push_R</ANIM_NAME_R>
-				<NODE_ID_S>cdu1_push_S</NODE_ID_S>
-				<ANIM_NAME_S>cdu1_push_S</ANIM_NAME_S>
-				<NODE_ID_T>cdu1_push_T</NODE_ID_T>
-				<ANIM_NAME_T>cdu1_push_T</ANIM_NAME_T>
-				<NODE_ID_U>cdu1_push_U</NODE_ID_U>
-				<ANIM_NAME_U>cdu1_push_U</ANIM_NAME_U>
-				<NODE_ID_V>cdu1_push_V</NODE_ID_V>
-				<ANIM_NAME_V>cdu1_push_V</ANIM_NAME_V>
-				<NODE_ID_W>cdu1_push_W</NODE_ID_W>
-				<ANIM_NAME_W>cdu1_push_W</ANIM_NAME_W>
-				<NODE_ID_X>cdu1_push_X</NODE_ID_X>
-				<ANIM_NAME_X>cdu1_push_X</ANIM_NAME_X>
-				<NODE_ID_Y>cdu1_push_Y</NODE_ID_Y>
-				<ANIM_NAME_Y>cdu1_push_Y</ANIM_NAME_Y>
-				<NODE_ID_Z>cdu1_push_Z</NODE_ID_Z>
-				<ANIM_NAME_Z>cdu1_push_Z</ANIM_NAME_Z>
-				<NODE_ID_0>cdu1_push_0</NODE_ID_0>
-				<ANIM_NAME_0>cdu1_push_0</ANIM_NAME_0>
-				<NODE_ID_1>cdu1_push_1</NODE_ID_1>
-				<ANIM_NAME_1>cdu1_push_1</ANIM_NAME_1>
-				<NODE_ID_2>cdu1_push_2</NODE_ID_2>
-				<ANIM_NAME_2>cdu1_push_2</ANIM_NAME_2>
-				<NODE_ID_3>cdu1_push_3</NODE_ID_3>
-				<ANIM_NAME_3>cdu1_push_3</ANIM_NAME_3>
-				<NODE_ID_4>cdu1_push_4</NODE_ID_4>
-				<ANIM_NAME_4>cdu1_push_4</ANIM_NAME_4>
-				<NODE_ID_5>cdu1_push_5</NODE_ID_5>
-				<ANIM_NAME_5>cdu1_push_5</ANIM_NAME_5>
-				<NODE_ID_6>cdu1_push_6</NODE_ID_6>
-				<ANIM_NAME_6>cdu1_push_6</ANIM_NAME_6>
-				<NODE_ID_7>cdu1_push_7</NODE_ID_7>
-				<ANIM_NAME_7>cdu1_push_7</ANIM_NAME_7>
-				<NODE_ID_8>cdu1_push_8</NODE_ID_8>
-				<ANIM_NAME_8>cdu1_push_8</ANIM_NAME_8>
-				<NODE_ID_9>cdu1_push_9</NODE_ID_9>
-				<ANIM_NAME_9>cdu1_push_9</ANIM_NAME_9>
-				<NODE_ID_DOT>cdu1_push_DOT</NODE_ID_DOT>
-				<ANIM_NAME_DOT>cdu1_push_DOT</ANIM_NAME_DOT>
-				<NODE_ID_PLUSMINUS>cdu1_push_OPE</NODE_ID_PLUSMINUS>
-				<ANIM_NAME_PLUSMINUS>cdu1_push_OPE</ANIM_NAME_PLUSMINUS>
-				<NODE_ID_OFST>CDU1_OFST_decal</NODE_ID_OFST>
-				<NODE_ID_MSG>CDU1_MSG_decal</NODE_ID_MSG>
-				<NODE_ID_FAIL>CDU1_FAIL_decal</NODE_ID_FAIL>
-				<NODE_ID_DSPL>CDU1_DSPY_decal</NODE_ID_DSPL>
-				<NODE_ID_EMISSIVE_EXEC>CDU_EXEC_Active_1</NODE_ID_EMISSIVE_EXEC>
-			</UseTemplate> 	
-		</Component>
-		<Component ID="CDU_2">
-			<UseTemplate Name="ASOBO_FMC_B747">
-				<ID>2</ID>
-				<NODE_ID_SCREEN>FMC_2</NODE_ID_SCREEN>
-				<CIRCUIT_ID>27</CIRCUIT_ID>
-				<SEQ1_SUFFIX>_decal</SEQ1_SUFFIX>
-				<NODE_ID_INIT>btn_CDU2_INIT</NODE_ID_INIT>
-				<ANIM_NAME_INIT>CDU2_push_INIT</ANIM_NAME_INIT>
-				<NODE_ID_RTE>btn_CDU2_RTE</NODE_ID_RTE>
-				<ANIM_NAME_RTE>CDU2_push_RTE</ANIM_NAME_RTE>
-				<NODE_ID_DEP_ARR>btn_CDU2_DEP_ARR</NODE_ID_DEP_ARR>
-				<ANIM_NAME_DEP_ARR>CDU2_push_DEP_ARR</ANIM_NAME_DEP_ARR>
-				<NODE_ID_ATC>btn_CDU2_ATC</NODE_ID_ATC>
-				<ANIM_NAME_ATC>CDU2_push_ATC</ANIM_NAME_ATC>
-				<NODE_ID_VNAV>btn_CDU2_VNAV</NODE_ID_VNAV>
-				<ANIM_NAME_VNAV>CDU2_push_VNAV</ANIM_NAME_VNAV>
-				<NODE_ID_BRT_DIM>btn_CDU2_BRT</NODE_ID_BRT_DIM>
-				<ANIM_NAME_BRT_DIM>CDU2_push_BRT</ANIM_NAME_BRT_DIM>
-				<NODE_ID_BRT_DIM_SEQ1>btn_CDU2_BRT_DECAL</NODE_ID_BRT_DIM_SEQ1>
-				<NODE_ID_FIX>btn_CDU2_FIX</NODE_ID_FIX>
-				<ANIM_NAME_FIX>CDU2_push_FIX</ANIM_NAME_FIX>
-				<NODE_ID_LEGS>btn_CDU2_LEGS</NODE_ID_LEGS>
-				<ANIM_NAME_LEGS>CDU2_push_LEGS</ANIM_NAME_LEGS>
-				<NODE_ID_HOLD>btn_CDU2_HOLD</NODE_ID_HOLD>
-				<ANIM_NAME_HOLD>CDU2_push_HOLD</ANIM_NAME_HOLD>
-				<NODE_ID_FMC_COMM>btn_CDU2_FMC_COMM</NODE_ID_FMC_COMM>
-				<ANIM_NAME_FMC_COMM>CDU2_push_FMC_COMM</ANIM_NAME_FMC_COMM>
-				<NODE_ID_PROG>btn_CDU2_PROG</NODE_ID_PROG>
-				<ANIM_NAME_PROG>CDU2_push_PROG</ANIM_NAME_PROG>
-				<NODE_ID_EXEC>btn_CDU2_EXE</NODE_ID_EXEC>
-				<ANIM_NAME_EXEC>CDU2_push_EXEC</ANIM_NAME_EXEC>
-				<NODE_ID_MENU>btn_CDU2_MENU</NODE_ID_MENU>
-				<ANIM_NAME_MENU>CDU2_push_MENU</ANIM_NAME_MENU>
-				<NODE_ID_NAV_RAD>btn_CDU2_NAV_RAD</NODE_ID_NAV_RAD>
-				<ANIM_NAME_NAV_RAD>CDU2_push_NAV_RAD</ANIM_NAME_NAV_RAD>
-				<NODE_ID_PREV_PAGE>btn_CDU2_PAGE_PREV</NODE_ID_PREV_PAGE>
-				<ANIM_NAME_PREV_PAGE>CDU2_push_PAGE_PREV</ANIM_NAME_PREV_PAGE>
-				<NODE_ID_NEXT_PAGE>btn_CDU2_PAGE_NEXT</NODE_ID_NEXT_PAGE>
-				<ANIM_NAME_NEXT_PAGE>CDU2_push_PAGE_NEXT</ANIM_NAME_NEXT_PAGE>
-				<NODE_ID_SP>btn_CDU2_SP</NODE_ID_SP>
-				<ANIM_NAME_SP>CDU2_push_SP</ANIM_NAME_SP>
-				<NODE_ID_DEL>btn_CDU2_DEL</NODE_ID_DEL>
-				<ANIM_NAME_DEL>CDU2_push_DEL</ANIM_NAME_DEL>
-				<NODE_ID_CLR>btn_CDU2_CLR</NODE_ID_CLR>
-				<ANIM_NAME_CLR>CDU2_push_CLR</ANIM_NAME_CLR>
-				<NODE_ID_DIV>btn_CDU2_DIVIDE</NODE_ID_DIV>
-				<ANIM_NAME_DIV>CDU2_push_DIV</ANIM_NAME_DIV>
-				<NODE_ID_L1>btn_CDU2_L_1</NODE_ID_L1>
-				<ANIM_NAME_L1>CDU2_push_L1</ANIM_NAME_L1>
-				<NODE_ID_L2>btn_CDU2_L_2</NODE_ID_L2>
-				<ANIM_NAME_L2>CDU2_push_L2</ANIM_NAME_L2>
-				<NODE_ID_L3>btn_CDU2_L_3</NODE_ID_L3>
-				<ANIM_NAME_L3>CDU2_push_L3</ANIM_NAME_L3>
-				<NODE_ID_L4>btn_CDU2_L_4</NODE_ID_L4>
-				<ANIM_NAME_L4>CDU2_push_L4</ANIM_NAME_L4>
-				<NODE_ID_L5>btn_CDU2_L_5</NODE_ID_L5>
-				<ANIM_NAME_L5>CDU2_push_L5</ANIM_NAME_L5>
-				<NODE_ID_L6>btn_CDU2_L_6</NODE_ID_L6>
-				<ANIM_NAME_L6>CDU2_push_L6</ANIM_NAME_L6>
-				<NODE_ID_R1>btn_CDU2_R_1</NODE_ID_R1>
-				<ANIM_NAME_R1>CDU2_push_R1</ANIM_NAME_R1>
-				<NODE_ID_R2>btn_CDU2_R_2</NODE_ID_R2>
-				<ANIM_NAME_R2>CDU2_push_R2</ANIM_NAME_R2>
-				<NODE_ID_R3>btn_CDU2_R_3</NODE_ID_R3>
-				<ANIM_NAME_R3>CDU2_push_R3</ANIM_NAME_R3>
-				<NODE_ID_R4>btn_CDU2_R_4</NODE_ID_R4>
-				<ANIM_NAME_R4>CDU2_push_R4</ANIM_NAME_R4>
-				<NODE_ID_R5>btn_CDU2_R_5</NODE_ID_R5>
-				<ANIM_NAME_R5>CDU2_push_R5</ANIM_NAME_R5>
-				<NODE_ID_R6>btn_CDU2_R_6</NODE_ID_R6>
-				<ANIM_NAME_R6>CDU2_push_R6</ANIM_NAME_R6>
-				<NODE_ID_A>btn_CDU2_A</NODE_ID_A>
-				<ANIM_NAME_A>CDU2_push_A</ANIM_NAME_A>
-				<NODE_ID_B>btn_CDU2_B</NODE_ID_B>
-				<ANIM_NAME_B>CDU2_push_B</ANIM_NAME_B>
-				<NODE_ID_C>btn_CDU2_C</NODE_ID_C>
-				<ANIM_NAME_C>CDU2_push_C</ANIM_NAME_C>
-				<NODE_ID_D>btn_CDU2_D</NODE_ID_D>
-				<ANIM_NAME_D>CDU2_push_D</ANIM_NAME_D>
-				<NODE_ID_E>btn_CDU2_E</NODE_ID_E>
-				<ANIM_NAME_E>CDU2_push_E</ANIM_NAME_E>
-				<NODE_ID_F>btn_CDU2_F</NODE_ID_F>
-				<ANIM_NAME_F>CDU2_push_F</ANIM_NAME_F>
-				<NODE_ID_G>btn_CDU2_G</NODE_ID_G>
-				<ANIM_NAME_G>CDU2_push_G</ANIM_NAME_G>
-				<NODE_ID_H>btn_CDU2_H</NODE_ID_H>
-				<ANIM_NAME_H>CDU2_push_H</ANIM_NAME_H>
-				<NODE_ID_I>btn_CDU2_I</NODE_ID_I>
-				<ANIM_NAME_I>CDU2_push_I</ANIM_NAME_I>
-				<NODE_ID_J>btn_CDU2_J</NODE_ID_J>
-				<ANIM_NAME_J>CDU2_push_J</ANIM_NAME_J>
-				<NODE_ID_K>btn_CDU2_K</NODE_ID_K>
-				<ANIM_NAME_K>CDU2_push_K</ANIM_NAME_K>
-				<NODE_ID_L>btn_CDU2_L</NODE_ID_L>
-				<ANIM_NAME_L>CDU2_push_L</ANIM_NAME_L>
-				<NODE_ID_M>btn_CDU2_M</NODE_ID_M>
-				<ANIM_NAME_M>CDU2_push_M</ANIM_NAME_M>
-				<NODE_ID_N>btn_CDU2_N</NODE_ID_N>
-				<ANIM_NAME_N>CDU2_push_N</ANIM_NAME_N>
-				<NODE_ID_O>btn_CDU2_O</NODE_ID_O>
-				<ANIM_NAME_O>CDU2_push_O</ANIM_NAME_O>
-				<NODE_ID_P>btn_CDU2_P</NODE_ID_P>
-				<ANIM_NAME_P>CDU2_push_P</ANIM_NAME_P>
-				<NODE_ID_Q>btn_CDU2_Q</NODE_ID_Q>
-				<ANIM_NAME_Q>CDU2_push_Q</ANIM_NAME_Q>
-				<NODE_ID_R>btn_CDU2_R</NODE_ID_R>
-				<ANIM_NAME_R>CDU2_push_R</ANIM_NAME_R>
-				<NODE_ID_S>btn_CDU2_S</NODE_ID_S>
-				<ANIM_NAME_S>CDU2_push_S</ANIM_NAME_S>
-				<NODE_ID_T>btn_CDU2_T</NODE_ID_T>
-				<ANIM_NAME_T>CDU2_push_T</ANIM_NAME_T>
-				<NODE_ID_U>btn_CDU2_U</NODE_ID_U>
-				<ANIM_NAME_U>CDU2_push_U</ANIM_NAME_U>
-				<NODE_ID_V>btn_CDU2_V</NODE_ID_V>
-				<ANIM_NAME_V>CDU2_push_V</ANIM_NAME_V>
-				<NODE_ID_W>btn_CDU2_W</NODE_ID_W>
-				<ANIM_NAME_W>CDU2_push_W</ANIM_NAME_W>
-				<NODE_ID_X>btn_CDU2_X</NODE_ID_X>
-				<ANIM_NAME_X>CDU2_push_X</ANIM_NAME_X>
-				<NODE_ID_Y>btn_CDU2_Y</NODE_ID_Y>
-				<ANIM_NAME_Y>CDU2_push_Y</ANIM_NAME_Y>
-				<NODE_ID_Z>btn_CDU2_Z</NODE_ID_Z>
-				<ANIM_NAME_Z>CDU2_push_Z</ANIM_NAME_Z>
-				<NODE_ID_0>btn_CDU2_0</NODE_ID_0>
-				<ANIM_NAME_0>CDU2_push_0</ANIM_NAME_0>
-				<NODE_ID_1>btn_CDU2_1</NODE_ID_1>
-				<ANIM_NAME_1>CDU2_push_1</ANIM_NAME_1>
-				<NODE_ID_2>btn_CDU2_2</NODE_ID_2>
-				<ANIM_NAME_2>CDU2_push_2</ANIM_NAME_2>
-				<NODE_ID_3>btn_CDU2_3</NODE_ID_3>
-				<ANIM_NAME_3>CDU2_push_3</ANIM_NAME_3>
-				<NODE_ID_4>btn_CDU2_4</NODE_ID_4>
-				<ANIM_NAME_4>CDU2_push_4</ANIM_NAME_4>
-				<NODE_ID_5>btn_CDU2_5</NODE_ID_5>
-				<ANIM_NAME_5>CDU2_push_5</ANIM_NAME_5>
-				<NODE_ID_6>btn_CDU2_6</NODE_ID_6>
-				<ANIM_NAME_6>CDU2_push_6</ANIM_NAME_6>
-				<NODE_ID_7>btn_CDU2_7</NODE_ID_7>
-				<ANIM_NAME_7>CDU2_push_7</ANIM_NAME_7>
-				<NODE_ID_8>btn_CDU2_8</NODE_ID_8>
-				<ANIM_NAME_8>CDU2_push_8</ANIM_NAME_8>
-				<NODE_ID_9>btn_CDU2_9</NODE_ID_9>
-				<ANIM_NAME_9>CDU2_push_9</ANIM_NAME_9>
-				<NODE_ID_DOT>btn_CDU2_DOT</NODE_ID_DOT>
-				<ANIM_NAME_DOT>CDU2_push_DOT</ANIM_NAME_DOT>
-				<NODE_ID_PLUSMINUS>btn_CDU2_OPE</NODE_ID_PLUSMINUS>
-				<ANIM_NAME_PLUSMINUS>CDU2_push_OPE</ANIM_NAME_PLUSMINUS>
-				<NODE_ID_OFST>CDU2_OFST_decal</NODE_ID_OFST>
-				<NODE_ID_MSG>CDU2_MSG_decal</NODE_ID_MSG>
-				<NODE_ID_FAIL>CDU2_FAIL_decal</NODE_ID_FAIL>
-				<NODE_ID_DSPL>CDU2_DSPY_decal</NODE_ID_DSPL>
-				<NODE_ID_EMISSIVE_EXEC>CDU_EXEC_Active_2</NODE_ID_EMISSIVE_EXEC>
-			</UseTemplate>
-		</Component>
-		<Component ID="Attitude_Role_Ball" Node="Attitude_Pitch_Ball">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>Attitude_Role</ANIM_NAME>
-                <ANIM_LENGTH>360</ANIM_LENGTH>
-                <ANIM_CODE>(A:ATTITUDE INDICATOR BANK DEGREES:1, degrees) /-/ 180 +</ANIM_CODE>
-            </UseTemplate>
-    	</Component>
-		<Component ID="Attitude_Pitch_Ball" Node="Attitude_Pitch_Ball">
-            <UseTemplate Name="ASOBO_GT_Anim_Code">
-                <ANIM_NAME>Attitude_Pitch_Ball</ANIM_NAME>
-                <ANIM_LENGTH>360</ANIM_LENGTH>
-                <ANIM_CODE>
-                    (A:ATTITUDE INDICATOR PITCH DEGREES:1, degrees) abs 90 &gt; if{
-                        0.5 (A:ATTITUDE INDICATOR PITCH DEGREES:1, degrees) /-/ * 90 +
-        	        } els{
-                        1.5 (A:ATTITUDE INDICATOR PITCH DEGREES:1, degrees) /-/ * 180 +
-                    }
-                </ANIM_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Attitude_Idicator" Node="Attitude_Pitch_Ball">
-            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
-                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
-            </UseTemplate>
-        </Component>
-		<Component ID="Lights_Parameters">
-			<DefaultTemplateParameters>
-				<SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:2</SIMVAR_POWER_SETTING>
-				<TYPE>BOEING</TYPE>
-				<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_VISIBILITY>True</SEQ1_CODE_DRIVES_VISIBILITY>
-				<SEQ1_CODE_DRIVES_DOWN_STATE>True</SEQ1_CODE_DRIVES_DOWN_STATE>
-				<SEQ2_NOT_DIMMABLE>True</SEQ2_NOT_DIMMABLE>
-			</DefaultTemplateParameters>
-		</Component>
-		<Component ID="Wipers">
-			<UseTemplate Name="ASOBO_HANDLING_Knob_Wipers_Template">
-				<CIRCUIT_ID_WIPERS>111</CIRCUIT_ID_WIPERS>
-				<POS_OFF>0</POS_OFF>
-				<POS_SLOW>1</POS_SLOW>
-				<POS_NORM>2</POS_NORM>
-				<NODE_ID>Wiper_Nob</NODE_ID>
-				<ANIM_NAME>Wiper_Nob</ANIM_NAME>
-			</UseTemplate>
-		</Component>
-	<!--<Component ID="Dummies">
-			<DefaultTemplateParameters>
-				<SEQ1_EMISSIVE_CODE>1</SEQ1_EMISSIVE_CODE>
-				<SEQ2_EMISSIVE_CODE>2</SEQ2_EMISSIVE_CODE>
-				<SEQ_POWERED>ELECTRICAL MASTER BATTERY:1</SEQ_POWERED>
-			</DefaultTemplateParameters>
-			<UseTemplate Name="DD_GT_Push_Button_Airliner_Dummy">
-				<NODE_ID>Utility_Bus_2</NODE_ID>
-				<ANIM_NAME>Utility_Bus_2</ANIM_NAME>
-				<SEQ1_NODE_ID>Utility_Bus_2_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Utility_Bus_2_SEQ1</SEQ2_NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="DD_GT_Push_Button_Airliner_Dummy">
-				<NODE_ID>Utility_Bus_1</NODE_ID>
-				<ANIM_NAME>Utility_Bus_1</ANIM_NAME>
-				<SEQ1_NODE_ID>Utility_Bus_1_SEQ2</SEQ1_NODE_ID>
-				<SEQ2_NODE_ID>Utility_Bus_1_SEQ1</SEQ2_NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_GT_Push_Button_Airliner_Dummy">
-				<NODE_ID>Gen_Drive_L</NODE_ID>
-				<ANIM_NAME>Gen_Drive_L</ANIM_NAME>
-				<SEQ1_NODE_ID>Gen_Drive_L_SEQ2</SEQ1_NODE_ID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_GT_Push_Button_Airliner_Dummy">
-				<NODE_ID>Gen_Drive_R</NODE_ID>
-				<ANIM_NAME>Gen_Drive_R</ANIM_NAME>
-				<SEQ1_NODE_ID>Gen_Drive_R_SEQ2</SEQ1_NODE_ID>
-			</UseTemplate>
-		</Component>-->
-		
-		<Component ID="PACKS">
-		 	<UseTemplate Name="DD_Push_Toggle">
-                <NODE_ID>Pack_1</NODE_ID>
-                <PART_ID>Pack_1</PART_ID>
-                <TOGGLE_SIMVAR>L:DD_AIRCOND_PACK1_TOGGLE</TOGGLE_SIMVAR>
-                <SEQ_POWERED>(A:ELECTRICAL MASTER BATTERY, Bool)</SEQ_POWERED>
-                <SEQ1_CODE>(L:DD_AIRCOND_PACK1_FAULT, Bool)</SEQ1_CODE>
-                <SEQ2_CODE>(L:DD_AIRCOND_PACK1_TOGGLE, Bool) !</SEQ2_CODE>
-                <SEQ2_EMISSIVE_DRIVES_VISIBILITY>False</SEQ2_EMISSIVE_DRIVES_VISIBILITY>
-                <SEQ1_CODE_DRIVES_VISIBILITY>False</SEQ1_CODE_DRIVES_VISIBILITY>
-                <SEQ2_CODE_DRIVES_VISIBILITY>False</SEQ2_CODE_DRIVES_VISIBILITY>
-             	<TOOLTIPID>%((L:DD_AIRCOND_PACK1_TOGGLE, Bool))%{if}Turn OFF pack 1%{else}Turn ON pack 1%{end}</TOOLTIPID>
-            </UseTemplate>
-			<UseTemplate Name="DD_Push_Toggle">
-                <NODE_ID>Pack_2</NODE_ID>
-                <PART_ID>Pack_2</PART_ID>
-                <TOGGLE_SIMVAR>L:DD_AIRCOND_PACK2_TOGGLE</TOGGLE_SIMVAR>
-                <SEQ_POWERED>(A:ELECTRICAL MASTER BATTERY, Bool)</SEQ_POWERED>
-                <SEQ1_CODE>(L:DD_AIRCOND_PACK2_FAULT, Bool)</SEQ1_CODE>
-                <SEQ2_CODE>(L:DD_AIRCOND_PACK2_TOGGLE, Bool) !</SEQ2_CODE>
-                <SEQ2_EMISSIVE_DRIVES_VISIBILITY>False</SEQ2_EMISSIVE_DRIVES_VISIBILITY>
-                <SEQ1_CODE_DRIVES_VISIBILITY>False</SEQ1_CODE_DRIVES_VISIBILITY>
-                <SEQ2_CODE_DRIVES_VISIBILITY>False</SEQ2_CODE_DRIVES_VISIBILITY>
-             	<TOOLTIPID>%((L:DD_AIRCOND_PACK2_TOGGLE, Bool))%{if}Turn OFF pack 2%{else}Turn ON pack 2%{end}</TOOLTIPID>
-            </UseTemplate>
-
-			<UseTemplate Name="ASOBO_GT_Push_Button_Airliner">
-                <NODE_ID>Isolation_Valve</NODE_ID>
-                <ANIM_NAME>Isolation_Valve</ANIM_NAME>
-                <SEQ1_CODE>Isolation_SEQ1</SEQ1_CODE>
-				<SEQ2_CODE>Isolation_SEQ2</SEQ2_CODE>
-            	<WWISE_EVENT_1>apu_generator_switch_on</WWISE_EVENT_1>
-                <WWISE_EVENT_2>apu_generator_switch_off</WWISE_EVENT_2>
-                <NORMALIZED_TIME_1>0.1</NORMALIZED_TIME_1>
-                <NORMALIZED_TIME_2>0.5</NORMALIZED_TIME_2>
-                <TOOLTIPID>%((L:ISOLATION_VALVE_TOGGLE, Bool))%{if}Close Isolation VALVE%{else}Open Isolation VALVE%{end}</TOOLTIPID>
-                <LEFT_SINGLE_CODE>(L:ISOLATION_VALVE_TOGGLE) ! (>L:ISOLATION_VALVE_TOGGLE)</LEFT_SINGLE_CODE>
-            </UseTemplate>
-		</Component>
-
-		<!--<Component ID="Pack1_Indicator" Node="PackLight1">
+		<Component ID="FUEL_Push_Pump_2_FRT_SQ2" Node="FUEL_Push_Pump_2_FRT_SQ2">
     		<Visibility>
       			<Parameter>
-        			<Code>(L:DD_AIRCOND_PACK1_TOGGLE, Bool) (A:ELECTRICAL MASTER BATTERY:1, Bool)  &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:6, Bool) &amp; if{ 1 } els{ 0 }</Code>
+      			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
-  		</Component>-->
-
-		<!--<Component ID="Pack2_Indicator" Node="Pack_2_SEQ2">
+  		</Component>
+<!-- Hydralic Button Decal Lights -->
+		<Component ID="FUEL_Push_Pump_2_FRT_SQ2" Node="FUEL_Push_Pump_2_FRT_SQ2">
     		<Visibility>
       			<Parameter>
-        			<Code>(L:DD_AIRCOND_PACK2_TOGGLE, Bool) (A:ELECTRICAL MASTER BATTERY:1, Bool)  &amp; if{ 1 } els{ 0 }</Code>
-     	 		</Parameter>
+       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:6, Bool) &amp; if{ 1 } els{ 0 }</Code>
+      			</Parameter>
     		</Visibility>
 			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
-  		</Component>-->
-
-		<Component ID="TESTS">
-			<UseTemplate Name="DD_Push_Held">
-    	        <NODE_ID>Annlt_Test</NODE_ID>
-                <PART_ID>Annlt_Test</PART_ID>
-                <ANIM_NAME>Annlt_Test</ANIM_NAME>
-                <NUM_STATES>3</NUM_STATES>
-                <SWITCH_DIRECTION>Vertical</SWITCH_DIRECTION>
-                <LIGHT_TYPE>ANN_LT</LIGHT_TYPE>
-                <SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-                <SWITCH_POSITION_VAR>DD_OVHD_INTLT_ANN</SWITCH_POSITION_VAR>
-                <ANIMTIP_1_ON_PERCENT>0.5</ANIMTIP_1_ON_PERCENT>
-            	<ANIMTIP_0>Test annunciator lights</ANIMTIP_0>
-                <WWISE_EVENT>lswitch</WWISE_EVENT>
-                <NORMALIZED_TIME_1>0.1</NORMALIZED_TIME_1>
-                <NORMALIZED_TIME_2>0.5</NORMALIZED_TIME_2>
-                <CODE_POS_0></CODE_POS_0>
-                <CODE_POS_1></CODE_POS_1>
-                <CODE_POS_2></CODE_POS_2>
-            </UseTemplate>
-		</Component>
-
-	<!-- Ram Air Turbine -->
-
-		<!--<Component ID="RAT_PushButton" Node="RAT_PushButton">
-			<UseTemplate Name="DD_Switch2_Template">
-				<SWITCH_ANIM_NAME>RAT_PushButton</SWITCH_ANIM_NAME>
-				<ANIM_LAG>400</ANIM_LAG>
-			</UseTemplate>
-		</Component>-->
-	</Behaviors>
-
-
-
+  		</Component>
+    </Behaviors>
+<!-- Bleed Panel -->
+<Animation name="APU_Bleed" guid="7b41ba7f-afd6-4f04-8286-96d7a3484879" length="100" type="Sim" typeParam2="APU_Bleed" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>APU_Bleed</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>BLEED AIR APU</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:APU_BLEED_AIR_SOURCE_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="E1_Bleed" guid="1ada3aa8-f419-44ac-a392-e6305976b216" length="100" type="Sim" typeParam2="E1_Bleed" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>E1_Bleed</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>BLEED AIR ENGINE:1</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="E2_Bleed" guid="9f05779c-905b-483f-8a47-7f1ae0957654" length="100" type="Sim" typeParam2="E2_Bleed" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>E2_Bleed</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>BLEED AIR ENGINE:2</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	2 (&gt;K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<!-- Fuel Panel -->
+<Animation name="FUEL_Push_Pump_Center_1" guid="770cd954-89f6-4095-8917-eee9bb73f1fa" length="100" type="Sim" typeParam2="FUEL_Push_Pump_Center_1" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Pump_Center_1</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM PUMP SWITCH:1</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="FUEL_Push_Pump_Center_2" guid="c7ffdb4a-5b2e-4816-bed7-b4a0120dec9d" length="100" type="Sim" typeParam2="FUEL_Push_Pump_Center_2" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Pump_Center_2</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM PUMP SWITCH:2</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	2 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="FUEL_Push_Pump_1_AFT" guid="f602c5a7-fd02-4881-8202-561c600c9c09" length="100" type="Sim" typeParam2="FUEL_Push_Pump_1_AFT" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Pump_1_AFT</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM PUMP SWITCH:3</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	3 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="FUEL_Push_Pump_1_FWD" guid="43041294-ccb3-44b6-b4d2-388e922e06f3" length="100" type="Sim" typeParam2="FUEL_Push_Pump_1_FWD" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Pump_1_FWD</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM PUMP SWITCH:4</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	4 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="FUEL_Push_Pump_2_AFT" guid="083d341a-6115-4944-aed4-0d0a3d27034c" length="100" type="Sim" typeParam2="FUEL_Push_Pump_2_AFT" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Pump_2_AFT</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM PUMP SWITCH:5</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	5 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="FUEL_Push_Pump_2_FWD" guid="c6f0cc0c-f83b-4a91-a012-f8af25f32838" length="100" type="Sim" typeParam2="FUEL_Push_Pump_2_FWD" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Pump_2_FWD</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM PUMP SWITCH:6</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	6 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="Fuel_Valve1" guid="0b98cf63-522f-4b72-b7d8-3c24114537bf" length="100" type="Sim" typeParam2="Fuel_Valve1" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Fuel_Valve1</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM VALVE SWITCH:1</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="Fuel_Valve2" guid="f0262598-2ce2-45bc-8cdb-35911e8f389b" length="100" type="Sim" typeParam2="Fuel_Valve2" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Fuel_Valve2</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM VALVE SWITCH:2</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	2 (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="FUEL_Push_Valve_1" guid="3800289f-75b3-4c58-8184-7e3d62af5bee" length="100" type="Sim" typeParam2="FUEL_Push_Valve_1" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>FUEL_Push_Valve_1</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>FUELSYSTEM VALVE SWITCH:3</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	3 (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<!-- Engine Panel -->
+<Animation name="Engine1_Stater" guid="985f8f00-9bd6-480d-9178-1465cdda9ee3" length="100" type="Sim" typeParam2="Engine1_Stater" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Engine1_Stater</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>GENERAL ENG STARTER:1</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:TOGGLE_STARTER1)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="Engine2_Stater" guid="ef445c82-e03a-4482-a62a-5c5ad761595d" length="100" type="Sim" typeParam2="Engine2_Stater" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>Engine2_Stater</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>GENERAL ENG STARTER:2</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:TOGGLE_STARTER2)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+<Animation name="RAT_PushButton" guid="a99d5095-7a6a-4148-ad01-024913b17fad" length="100" type="Sim" typeParam2="RAT_PushButton" typeParam="AutoPlay" />
+    <PartInfo>
+	    <Name>RAT_PushButton</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+	    	<Parameter>
+		    	<Code>
+		    		(L:ADG_POS, bool) 100 *
+		    	</Code>
+			<Lag>400</Lag>
+		</Parameter>
+	    </Animation>
+	    <MouseRect>
+		    <Cursor>Hand</Cursor>
+		    <CallbackCode>(L:ADG_POS, bool) ! (>L:ADG_POS, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
+<!-- Cockpit Seats/Doors -->    
 <Animation name="Arm_Rest" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Arm_Rest" typeParam="AutoPlay" />
-<PartInfo>
+	<PartInfo>
 	<Name>Arm_Rest</Name>
 	<AnimLength>100</AnimLength>
 	<Animation>
@@ -3068,28 +624,63 @@
 		<Cursor>Hand</Cursor>
 		<CallbackCode>(L:Arm_Rest, bool) ! (>L:Arm_Rest, bool)</CallbackCode>
 	</MouseRect>
-</PartInfo>
-
+	</PartInfo>
+<!-- Cockpit Door -->    
 <Animation name="Cockpit_Door" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
-<PartInfo>
-	<Name>Cockpit_Door</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Cockpit_Door, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Cockpit_Door, bool) ! (>L:Cockpit_Door, bool)</CallbackCode>
-	</MouseRect>
-</PartInfo>
-
+	<PartInfo>
+	    <Name>Cockpit_Door</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:Cockpit_Door, bool) 100 *
+		    	</Code>
+			    <Lag>100</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+		    <Cursor>Hand</Cursor>
+		    <CallbackCode>(L:Cockpit_Door, bool) ! (>L:Cockpit_Door, bool)</CallbackCode>
+	    </MouseRect>
+	</PartInfo>
+<!-- Jump Seats -->    
+<Animation name="Jumpseat_1" guid="db1d6825-6ee0-4f6a-8c90-e31cd885905b" length="100" type="Sim" typeParam2="Jumpseat_1" typeParam="AutoPlay" />
+    <PartInfo>
+	    <Name>Jumpseat_1</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:Jumpseat_1, bool) 100 *
+			    </Code>
+			    <Lag>100</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+	    	<Cursor>Hand</Cursor>
+	    	<CallbackCode>(L:Jumpseat_1, bool) ! (>L:Jumpseat_1, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
+<Animation name="Jumpseat_2" guid="6ae84a9b-efae-42cb-ac54-bdeac64d67d7" length="100" type="Sim" typeParam2="Jumpseat_2" typeParam="AutoPlay" />
+    <PartInfo>
+	    <Name>Jumpseat_2</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:Jumpseat_2, bool) 100 *
+			    </Code>
+			    <Lag>100</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+	    	<Cursor>Hand</Cursor>
+	    	<CallbackCode>(L:Jumpseat_2, bool) ! (>L:Jumpseat_2, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
+<!-- Button Covers -->
 <Animation name="EMR_Exit_Light_Cover" guid="5f9fa1b4-5912-44c6-b8fd-322707954688" length="100" type="Sim" typeParam2="EMR_Exit_Light_Cover" typeParam="AutoPlay" />
-<PartInfo>
+	<PartInfo>
 	<Name>EMR_Exit_Light_Cover</Name>
 	<AnimLength>100</AnimLength>
 	<Animation>
@@ -3105,81 +696,23 @@
 		<CallbackCode>(L:EMR_Exit_Light_Cover, bool) ! (>L:EMR_Exit_Light_Cover, bool)</CallbackCode>
 	</MouseRect>
 </PartInfo>
-
-
-<Animation name="RAT_PushButton" guid="a99d5095-7a6a-4148-ad01-024913b17fad" length="100" type="Sim" typeParam2="RAT_PushButton" typeParam="AutoPlay" />
-<PartInfo>
-	<Name>RAT_PushButton</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:ADG_POS, bool) 100 *
-			</Code>
-			<Lag>400</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:ADG_POS, bool) ! (>L:ADG_POS, bool)</CallbackCode>
-	</MouseRect>
-</PartInfo>
-
 <Animation name="RAT_Button_Cover" guid="e5043807-b9a5-4a11-82c9-aed25ff18294" length="100" type="Sim" typeParam2="RAT_Button_Cover" typeParam="AutoPlay" />
-<PartInfo>
-	<Name>RAT_Button_Cover</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:RAT_Button_Cover, bool) 100 *
-			</Code>
-			<Lag>400</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:RAT_Button_Cover, bool) ! (>L:RAT_Button_Cover, bool)</CallbackCode>
-	</MouseRect>
-</PartInfo>
-
-<Animation name="Jump_Seat1" guid="db1d6825-6ee0-4f6a-8c90-e31cd885905b" length="100" type="Sim" typeParam2="Jump_Seat1" typeParam="AutoPlay" />
-<PartInfo>
-	<Name>Jump_Seat1</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Jump_Seat1, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Jump_Seat1, bool) ! (>L:Jump_Seat1, bool)</CallbackCode>
-	</MouseRect>
-</PartInfo>
-
-<Animation name="Cockpit_Door" guid="53e63e7b-c1d4-4446-be7f-baf88a487e9d" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
-<PartInfo>
-	<Name>Cockpit_Door</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Cockpit_Door, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Cockpit_Door, bool) ! (>L:Cockpit_Door, bool)</CallbackCode>
-	</MouseRect>
-</PartInfo>
-
-  
+    <PartInfo>
+	    <Name>RAT_Button_Cover</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:RAT_Button_Cover, bool) 100 *
+			    </Code>
+			    <Lag>400</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+		    <Cursor>Hand</Cursor>
+	    	<CallbackCode>(L:RAT_Button_Cover, bool) ! (>L:RAT_Button_Cover, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
 <!-- Landing Gear -->
 <Animation name="lever_landing_gear" guid="6176c7db-05b8-47d7-b97c-27febe6f2106" length="100" type="Sim" typeParam2="lever_landing_gear" typeParam="AutoPlay" />
     <PartInfo>
@@ -3208,7 +741,4 @@
             </CallbackJumpDragging>
         </MouseRect>
     </PartInfo>
-
-
-
 </ModelInfo>

@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+
+
+
+	<ModelInfo guid="{3575e4ce-92e6-483b-a9a1-82d8aad95f83}">
+
+		<LODS>
+
+			<LOD ModelFile="interior_LOD00.gltf" minSize="500"/>
+
+		</LODS>
+	<Behaviors>
+		<Include ModelBehaviorFile="Asobo\Common.xml"/> <!-- ##################################### -->
+		<Include ModelBehaviorFile="Asobo\Airliner\AirlinerCommon.xml"/>
+		<Include ModelBehaviorFile="Asobo\Airliner\Boeing.xml"/>
+		<Include ModelBehaviorFile="Asobo\Airliner\FMC.xml"/>
+		<Include ModelBehaviorFile="ASOBO\Inputs\Helpers.xml"/>
+		<Include ModelBehaviorFile="Asobo\Generic\Animations.xml"/>
+		<Include ModelBehaviorFile="Asobo\Common\Instrument.xml"/>
+  		<Include File="instruments.xml"/>
+        <Include ModelBehaviorFile="Asobo\Common.xml"/>
+        <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
+		<Include File="Boeing.xml"/>
+
+	<Component ID="Electrical_Panel">
+		<UseTemplate Name="ASOBO_BOEING_Knob_StandbyPower_Template">
+			<NODE_ID>Standby_Power</NODE_ID>
+			<ANIM_NAME>Standby_Power</ANIM_NAME>
+			<BATTERY_BUS_ID>6</BATTERY_BUS_ID>
+			<MAIN_BUS_ID>4</MAIN_BUS_ID>
+			<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
+		</UseTemplate>	
+	</Component>
+	</Behaviors>
+
+<Animation name="landing_left" guid="530d8b23-61a8-4bd2-b6fe-7a8f75ba09ae" length="100" type="Sim" typeParam2="landing_left" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>landing_left</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>LIGHT LANDING</Variable>
+                    <Units>bool</Units>
+                    <Scale>100</Scale>
+                </Sim>
+                <Lag>400</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+      		<CallbackCode>
+		 	1 (&gt;K:LANDING_LIGHTS_TOGGLE)
+      		</CallbackCode>
+        </MouseRect>
+    </PartInfo>
+
+<Animation name="Arm_Rest" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Arm_Rest" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>Arm_Rest</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Arm_Rest, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Arm_Rest, bool) ! (>L:Arm_Rest, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+<Animation name="Cockpit_Door" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>Cockpit_Door</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Cockpit_Door, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Cockpit_Door, bool) ! (>L:Cockpit_Door, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+<Animation name="EMR_Exit_Light_Cover" guid="5f9fa1b4-5912-44c6-b8fd-322707954688" length="100" type="Sim" typeParam2="EMR_Exit_Light_Cover" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>EMR_Exit_Light_Cover</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:EMR_Exit_Light_Cover, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:EMR_Exit_Light_Cover, bool) ! (>L:EMR_Exit_Light_Cover, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+
+<Animation name="RAT_PushButton" guid="a99d5095-7a6a-4148-ad01-024913b17fad" length="100" type="Sim" typeParam2="RAT_PushButton" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>RAT_PushButton</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:ADG_POS, bool) 100 *
+			</Code>
+			<Lag>400</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:ADG_POS, bool) ! (>L:ADG_POS, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+<Animation name="RAT_Button_Cover" guid="e5043807-b9a5-4a11-82c9-aed25ff18294" length="100" type="Sim" typeParam2="RAT_Button_Cover" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>RAT_Button_Cover</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:RAT_Button_Cover, bool) 100 *
+			</Code>
+			<Lag>400</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:RAT_Button_Cover, bool) ! (>L:RAT_Button_Cover, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+<Animation name="Jump_Seat1" guid="db1d6825-6ee0-4f6a-8c90-e31cd885905b" length="100" type="Sim" typeParam2="Jump_Seat1" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>Jump_Seat1</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Jump_Seat1, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Jump_Seat1, bool) ! (>L:Jump_Seat1, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+<Animation name="Cockpit_Door" guid="53e63e7b-c1d4-4446-be7f-baf88a487e9d" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
+<PartInfo>
+	<Name>Cockpit_Door</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Cockpit_Door, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Cockpit_Door, bool) ! (>L:Cockpit_Door, bool)</CallbackCode>
+	</MouseRect>
+</PartInfo>
+
+  
+<!-- Landing Gear -->
+<Animation name="lever_landing_gear" guid="6176c7db-05b8-47d7-b97c-27febe6f2106" length="100" type="Sim" typeParam2="lever_landing_gear" typeParam="AutoPlay" />
+    <PartInfo>
+        <Name>lever_landing_gear</Name>
+        <AnimLength>100</AnimLength>
+        <Animation>
+            <Parameter>
+                <Sim>
+                    <Variable>GEAR HANDLE POSITION</Variable>
+                    <Units>percent</Units>
+                </Sim>
+                <Lag>200</Lag>
+            </Parameter>
+        </Animation>
+        <MouseRect>
+            <Cursor>Hand</Cursor>
+            <HelpID>HELPID_GAUGE_GEAR_LEVER</HelpID>
+            <TooltipID>TOOLTIPTEXT_GEAR_LEVER</TooltipID>
+            <MouseFlags>LeftSingle+LeftDrag+Wheel</MouseFlags>
+            <CallbackJumpDragging>
+                <YMovement>
+                    <Delta>50</Delta>
+                    <EventIdInc>GEAR_DOWN</EventIdInc>
+                    <EventIdDec>GEAR_UP</EventIdDec>
+                </YMovement>
+            </CallbackJumpDragging>
+        </MouseRect>
+    </PartInfo>
+
+
+
+</ModelInfo>
