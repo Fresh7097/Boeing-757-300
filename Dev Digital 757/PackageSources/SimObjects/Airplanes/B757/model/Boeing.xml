@@ -16,6 +16,8 @@
 		</UseTemplate>
 </Template>
 
+
+
     <Template Name="DD_GT_Switch_Dummy">
         <DefaultTemplateParameters>
             <SWITCH_POSITION_TYPE>O</SWITCH_POSITION_TYPE>

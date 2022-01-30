@@ -4,6 +4,7 @@
 
 	 
 
+
 <Template Name="Needle_Altitude_1000">
     <DefaultTemplateParameters>
         <ANIM_NAME>needle_altitude_thousand</ANIM_NAME>
