@@ -114,23 +114,23 @@
 			    <VARIANT>747</VARIANT>
 		    </DefaultTemplateParameters>
 		    <UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
-      	    	<NODE_ID>Master_Battery</NODE_ID>
-      	    	<ANIM_NAME>Master_Battery</ANIM_NAME>
+      	    	<NODE_ID>Overhead_PB_Battery_Master</NODE_ID>
+      	    	<ANIM_NAME>Overhead_PB_Battery_Master</ANIM_NAME>
 		    	<SEQ1_NODE_ID>Battery_SQ2</SEQ1_NODE_ID>
 		    	<SEQ2_NODE_ID>Battery_SQ1</SEQ2_NODE_ID>
 		    	<COVER_NODE_ID>Master_Battery_Cover</COVER_NODE_ID>
 		    	<COVER_ANIM_NAME>Master_Battery_Cover</COVER_ANIM_NAME>
         	</UseTemplate>
 		    <UseTemplate Name="ASOBO_BOEING_Knob_StandbyPower_Template">
-		    	<NODE_ID>Standby_Power</NODE_ID>
-	    		<ANIM_NAME>Standby_Power</ANIM_NAME>
+		    	<NODE_ID>Overhead_Switch_Standby_Power</NODE_ID>
+	    		<ANIM_NAME>Overhead_Switch_Standby_Power</ANIM_NAME>
 		    	<BATTERY_BUS_ID>6</BATTERY_BUS_ID>
 		    	<MAIN_BUS_ID>4</MAIN_BUS_ID>
 	    		<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
 		    </UseTemplate>
 		    <UseTemplate Name="DD_ELECTRICAL_Push_ExternalPower_Template">
-		    	<NODE_ID>External_Power</NODE_ID>
-		    	<ANIM_NAME>External_Power</ANIM_NAME>
+		    	<NODE_ID>Overhead_PB_External_Power</NODE_ID>
+		    	<ANIM_NAME>Overhead_PB_External_Power</ANIM_NAME>
 		    	<SEQ1_NODE_ID>External_Power_SQ2</SEQ1_NODE_ID>
 		    	<SEQ2_NODE_ID>External_Power_SQ1</SEQ2_NODE_ID>
 		    	<ID>1</ID>
@@ -146,13 +146,11 @@
 		    	<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
 		    </UseTemplate>
 			<UseTemplate Name="ASOBO_ELECTRICAL_Switch_APU_Starter_Template">
-				<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
 				<NODE_ID>APU_Starter</NODE_ID>
 				<ANIM_NAME>APU_Starter</ANIM_NAME>
-				<EMISSIVE_NODE_SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</EMISSIVE_NODE_SIMVAR_POWER_SETTING>
 				<SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
 				<SWITCH_POSITION_VAR>XMLVAR_APU_StarterKnob_Pos</SWITCH_POSITION_VAR>
-				<ACTIVE_FUEL_PUMP_ON_RPM>17</ACTIVE_FUEL_PUMP_ON_RPM>
+				<ACTIVE_FUEL_PUMP_ON_RPM>7</ACTIVE_FUEL_PUMP_ON_RPM>
 			</UseTemplate>
 			
 		    <UseTemplate Name="ASOBO_ELECTRICAL_Indicator_APU_Ready_Template">
@@ -160,6 +158,647 @@
 			    <MIN_PCT_RPM>17</MIN_PCT_RPM>
 		    </UseTemplate>
 	    </Component>
+		<Component ID="AP_Screens">
+		<!-- AP Screen Digits -->
+			<UseTemplate Name="Autopilot_Heading_1">
+    		</UseTemplate>
+			<UseTemplate Name="Autopilot_Heading_10">
+    		</UseTemplate>
+			<UseTemplate Name="Autopilot_Heading_100">
+    		</UseTemplate>
+
+			<UseTemplate Name="Autopilot_Altitude_100">
+			</UseTemplate>
+
+			<UseTemplate Name="Autopilot_Altitude_1000">
+    		</UseTemplate>
+
+			<UseTemplate Name="Autopilot_Altitude_10000">
+    		</UseTemplate>
+
+			<UseTemplate Name="Autopilot_Speed_1">
+    		</UseTemplate>
+			<UseTemplate Name="Autopilot_Speed_10">
+    		</UseTemplate>
+			<UseTemplate Name="Autopilot_Speed_100">
+    		</UseTemplate>
+
+			<UseTemplate Name="Autopilot_VS_100">
+    		</UseTemplate>
+
+			<UseTemplate Name="Autopilot_VS_1000">
+    		</UseTemplate>
+			
+			<UseTemplate Name="Autopilot_VS_Plus">
+    		</UseTemplate>
+
+		</Component>
+		
+
+<!-- Guagues -->
+
+		<Component ID="Altitude">
+		<!-- Alttitude -->
+		    <UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
+      			<ANIM_NAME>ATL_10</ANIM_NAME>
+      			<NODE_ID>ALT_10</NODE_ID>
+      			<FEET>10</FEET>
+      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
+   			</UseTemplate>
+   			 <UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
+     			 <ANIM_NAME>ATL_100</ANIM_NAME>
+      			<NODE_ID>ALT_100</NODE_ID>
+      			<FEET>100</FEET>
+      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
+    		</UseTemplate>
+			<UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
+      			<ANIM_NAME>ATL_1000</ANIM_NAME>
+      			<NODE_ID>ALT_1000</NODE_ID>
+     			 <FEET>1000</FEET>
+      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
+    		</UseTemplate>
+			<UseTemplate Name="ASOBO_INSTRUMENT_Needle_Altimeter_Template">
+      			<ANIM_NAME>ATL_10000</ANIM_NAME>
+      			<NODE_ID>ALT_10000</NODE_ID>
+      			<FEET>10000</FEET>
+      			<DONT_APPEND_ID>True</DONT_APPEND_ID>
+   			</UseTemplate>
+			<UseTemplate Name="Needle_Altitude_1000">
+      			<ANIM_NAME>ALT_Needle</ANIM_NAME>
+   			</UseTemplate>
+	    </Component>
+
+		<Component ID="Altitude_Needle1" Node="Altitude_Needle1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Altitude_Needle2" Node="Altitude_Needle2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Altitude_Needle3" Node="Altitude_Needle3">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:1, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Airspeed_Needle" Node="Airspeed_Needle">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>Airspeed_Needle</ANIM_NAME>
+                <ANIM_LENGTH>45</ANIM_LENGTH>
+                <ANIM_CODE>(A:AIRSPEED INDICATED, knots) 10 /</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Airspeed_Needle_2" Node="Airspeed_Needle_2">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>Airspeed_Needle</ANIM_NAME>
+                <ANIM_LENGTH>45</ANIM_LENGTH>
+                <ANIM_CODE>(A:AIRSPEED INDICATED, knots) 10 /</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Needles">
+			<UseTemplate Name="Speed_Barber_Pole">
+    		</UseTemplate>
+			<UseTemplate Name="Speed_Barber_Pole_2">
+    		</UseTemplate>
+			<UseTemplate Name="Airspeed_Knots_1">
+    		</UseTemplate>
+			<UseTemplate Name="Airspeed_Knots_10">
+    		</UseTemplate>
+			<UseTemplate Name="Airspeed_Knots_100">
+    		</UseTemplate>
+			<UseTemplate Name="Needle_VSI">
+    		</UseTemplate>
+			<UseTemplate Name="Pressurization_Cabin_Altitude">
+    		</UseTemplate>
+			<UseTemplate Name="Pressurization_Altitude_Rate">
+    		</UseTemplate>
+			<UseTemplate Name="Pressurization_Diffrence">
+    		</UseTemplate>
+       </Component>
+
+
+		<Component ID="Airspeed_MACH_100_1" Node="Airspeed_MACH_100_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_MACH_10_1" Node="Airspeed_MACH_10_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_MACH_1_1" Node="Airspeed_MACH_1_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_KNT_100_1" Node="Airspeed_KNT_100_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_KNT_10_1" Node="Airspeed_KNT_10_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_KNT_1_1" Node="Airspeed_KNT_1_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Airspeed_MACH_100_2" Node="Airspeed_MACH_100_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_MACH_10_2" Node="Airspeed_MACH_10_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_MACH_1_2" Node="Airspeed_MACH_1_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_KNT_100_2" Node="Airspeed_KNT_100_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_KNT_10_2" Node="Airspeed_KNT_10_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Airspeed_KNT_1_2" Node="Airspeed_KNT_1_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Speed_Barber_Pole" Node="Speed_Barber_Pole">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Speed_Needle" Node="Speed_Needle">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<Component ID="Speed_Barber_Pole_1" Node="Speed_Barber_Pole_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+		<!-- Altitude InHg 1 -->
+
+		<Component ID="InHg_1000" Node="InHg_1000">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp1</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="InHg_100" Node="InHg_100">		
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp2</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 % flr 10 * 10 * flr</ANIM_CODE>
+                </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="InHg_10" Node="InHg_10">            
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp3</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 * 10 % flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+		
+		<Component ID="InHg_1" Node="InHg_1">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp4</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 * 10 % flr 10 * 10 *</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<!-- Altitude InHg 2 -->
+
+		<Component ID="InHg_1000_2" Node="InHg_1000_2">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp1</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="InHg_100_2" Node="InHg_100_2">		
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp2</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 % flr 10 * 10 * flr</ANIM_CODE>
+                </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="InHg_10_2" Node="InHg_10_2">            
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp3</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 * 10 % flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+		
+		<Component ID="InHg_1_2" Node="InHg_1_2">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp4</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 * 10 % flr 10 * 10 *</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<!-- Altitude InHg 3 -->
+
+		<Component ID="InHg_1000_3" Node="InHg_1000_3">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp1</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="InHg_100_3" Node="InHg_100_3">		
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp2</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 % flr 10 * 10 * flr</ANIM_CODE>
+                </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="InHg_10_3" Node="InHg_10_3">            
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp3</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 10 * 10 % flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+		
+		<Component ID="InHg_1_3" Node="InHg_1_3">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>inHp4</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, inHg) abs 100 * 10 % flr 10 * 10 *</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<!-- Altitude MB 1 -->
+
+		<Component ID="MB_1000_2" Node="MB_1000_2">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Thousand</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 10000 % 1000 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="MB_100_2" Node="MB_100_2">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Hundereds</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 1000 % 100 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="MB_10_2" Node="MB_10_2">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Ten</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<!-- Altitude MB 2 -->
+
+		<Component ID="MB_1000_3" Node="MB_1000_3">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Thousand</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 10000 % 1000 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="MB_100_3" Node="MB_100_3">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Hundereds</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 1000 % 100 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="MB_10_3" Node="MB_10_3">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Ten</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<!-- Altitude MB 3 -->
+
+		<Component ID="MB_1000" Node="MB_1000">
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Thousand</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 10000 % 1000 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="MB_100" Node="MB_100">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Hundereds</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 1000 % 100 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<Component ID="MB_10" Node="MB_10">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>MB_Ten</ANIM_NAME>
+                <ANIM_LAG>100</ANIM_LAG>
+                <ANIM_WRAP>True</ANIM_WRAP>
+                <ANIM_LENGTH>1000</ANIM_LENGTH>
+                <ANIM_CODE>(A:KOHLSMAN SETTING MB:1, millibars) abs 100 % 10 / flr 10 * 10 * flr</ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+            	<EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.5 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+
+		<!-- Altitude MB number that dont move lmao -->
+
+		<Component ID="MB_1_3" Node="MB_1_3">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="MB_1_2" Node="MB_1_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="MB_1" Node="MB_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<!-- Altitude Number 1 -->
+
+		<Component ID="ATL_10000" Node="ATL_10000">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_1000" Node="ATL_1000">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_100" Node="ATL_100">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_10" Node="ATL_100">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<!-- Altitude Number 2 -->
+
+		<Component ID="ATL_10000_2" Node="ATL_10000_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_1000_2" Node="ATL_1000_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_100_2" Node="ATL_100_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_10_2" Node="ATL_10_2">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<!-- Altitude Number 3 -->
+
+		<Component ID="ATL_10000_3" Node="ATL_10000_3">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_1000_3" Node="ATL_1000_3">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_100_3" Node="ATL_100_3">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="ATL_10_3" Node="ATL_10_3">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+<!-- Flap Gauges -->
+
+ 		<Component ID="Flap_Needle" Node="Flap_Needle">
+            <UseTemplate Name="ASOBO_GT_Anim_Code">
+                <ANIM_NAME>Flap_Needle</ANIM_NAME>
+                <ANIM_LENGTH>31</ANIM_LENGTH>
+                <ANIM_CODE>(A:TRAILING EDGE FLAPS LEFT PERCENT, percent) (A:TRAILING EDGE FLAPS RIGHT PERCENT, percent) </ANIM_CODE>
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:3, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+		</Component>
+           
+   		<Component ID="Brake_Press" Node="Brake_Press">
+            <UseTemplate Name="BrakesPsi_Indicator_Animation">
+            </UseTemplate>
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:3, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+<!-- Basic Gauges -->
+
+		<Component ID="Overhead_Guage" Node="Overhead_Guage">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:3, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Compass" Node="Compass">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:3, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Altitude_GaugeBase" Node="Altitude_GaugeBase">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:2, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Gauge_Base_1" Node="Gauge_Base_1">
+            <UseTemplate Name="ASOBO_GT_Emissive_Gauge">
+                <EMISSIVE_CODE>(A:CIRCUIT GENERAL PANEL ON, bool) (A:LIGHT PANEL:3, bool) &amp;&amp; (A:LIGHT POTENTIOMETER:2, percent over 100) * 0.25 *</EMISSIVE_CODE>
+            </UseTemplate>
+        </Component>
+
+		<Component ID="Compass" Node="Compass">
+			<UseTemplate Name="Compass_Disc">
+			</UseTemplate>	
+		</Component>
 <!-- Fuel Panel Button Decal Lights -->
 				<Component ID="FUEL_Push_Pump_Center_1_SQ1" Node="FUEL_Push_Pump_Center_1_SQ1">
     		<Visibility>
@@ -608,25 +1247,76 @@
 	    </MouseRect>
     </PartInfo>
 <!-- Cockpit Seats/Doors -->    
-<Animation name="Arm_Rest" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Arm_Rest" typeParam="AutoPlay" />
+<Animation name="Arm_Rest1" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Arm_Rest1" typeParam="AutoPlay" />
 	<PartInfo>
-	<Name>Arm_Rest</Name>
+	<Name>Arm_Rest1</Name>
 	<AnimLength>100</AnimLength>
 	<Animation>
 		<Parameter>
 			<Code>
-				(L:Arm_Rest, bool) 100 *
+				(L:Arm_Rest1, bool) 100 *
 			</Code>
 			<Lag>100</Lag>
 		</Parameter>
 	</Animation>
 	<MouseRect>
 		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Arm_Rest, bool) ! (>L:Arm_Rest, bool)</CallbackCode>
+		<CallbackCode>(L:Arm_Rest1, bool) ! (>L:Arm_Rest1, bool)</CallbackCode>
+	</MouseRect>
+	</PartInfo>
+<Animation name="Arm_Rest2" guid="90c541bf-cc7a-4878-86f3-f8aa7edb4d33" length="100" type="Sim" typeParam2="Arm_Rest2" typeParam="AutoPlay" />
+	<PartInfo>
+	<Name>Arm_Rest2</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Arm_Rest2, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Arm_Rest2, bool) ! (>L:Arm_Rest2, bool)</CallbackCode>
+	</MouseRect>
+	</PartInfo>
+<Animation name="Arm_Rest3" guid="351c8500-9907-408e-b36c-b3a5e3ec8237" length="100" type="Sim" typeParam2="Arm_Rest3" typeParam="AutoPlay" />
+	<PartInfo>
+	<Name>Arm_Rest3</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Arm_Rest3, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Arm_Rest3, bool) ! (>L:Arm_Rest3, bool)</CallbackCode>
+	</MouseRect>
+	</PartInfo>
+<Animation name="Arm_Rest4" guid="28035985-7617-4ab9-b09b-cb0c72bdf953" length="100" type="Sim" typeParam2="Arm_Rest4" typeParam="AutoPlay" />
+	<PartInfo>
+	<Name>Arm_Rest4</Name>
+	<AnimLength>100</AnimLength>
+	<Animation>
+		<Parameter>
+			<Code>
+				(L:Arm_Rest4, bool) 100 *
+			</Code>
+			<Lag>100</Lag>
+		</Parameter>
+	</Animation>
+	<MouseRect>
+		<Cursor>Hand</Cursor>
+		<CallbackCode>(L:Arm_Rest4, bool) ! (>L:Arm_Rest4, bool)</CallbackCode>
 	</MouseRect>
 	</PartInfo>
 <!-- Cockpit Door -->    
-<Animation name="Cockpit_Door" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
+<Animation name="Cockpit_Door" guid="9e0aa56e-d450-434a-b7e7-0dbcd80051ec" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
 	<PartInfo>
 	    <Name>Cockpit_Door</Name>
 	    <AnimLength>100</AnimLength>
@@ -676,6 +1366,59 @@
 	    <MouseRect>
 	    	<Cursor>Hand</Cursor>
 	    	<CallbackCode>(L:Jumpseat_2, bool) ! (>L:Jumpseat_2, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
+<!-- Seats 
+<Animation name="Seat2" guid="ba131b28-262f-4b56-bd43-7e217a0b50f0" length="100" type="Sim" typeParam2="Seat2" typeParam="AutoPlay" />
+    <PartInfo>
+	    <Name>Seat2</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:Seat2, bool) 100 *
+			    </Code>
+			    <Lag>100</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+	    	<Cursor>Hand</Cursor>
+	    	<CallbackCode>(L:Seat2, bool) ! (>L:Seat2, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>
+<Animation name="Seat1" guid="da547561-9435-4468-aca3-7d8c74403863" length="100" type="Sim" typeParam2="Seat1" typeParam="AutoPlay" />
+    <PartInfo>
+	    <Name>Seat1</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:Seat1, bool) 100 *
+			    </Code>
+			    <Lag>100</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+	    	<Cursor>Hand</Cursor>
+	    	<CallbackCode>(L:Seat1, bool) ! (>L:Seat1, bool)</CallbackCode>
+	    </MouseRect>
+    </PartInfo>-->
+<!-- Blinds -->
+<Animation name="Blinds_1" guid="aa0894a9-f4f6-4bc2-9070-9db8a50f6a43" length="100" type="Sim" typeParam2="Blinds_1" typeParam="AutoPlay" />
+    <PartInfo>
+	    <Name>Blinds_1</Name>
+	    <AnimLength>100</AnimLength>
+	    <Animation>
+		    <Parameter>
+			    <Code>
+			    	(L:Blinds_1, bool) 100 *
+			    </Code>
+			    <Lag>400</Lag>
+		    </Parameter>
+	    </Animation>
+	    <MouseRect>
+		    <Cursor>Hand</Cursor>
+	    	<CallbackCode>(L:Blinds_1, bool) ! (>L:Blinds_1, bool)</CallbackCode>
 	    </MouseRect>
     </PartInfo>
 <!-- Button Covers -->
@@ -742,3 +1485,4 @@
         </MouseRect>
     </PartInfo>
 </ModelInfo>
+

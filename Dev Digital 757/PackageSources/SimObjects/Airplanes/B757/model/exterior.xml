@@ -106,7 +106,7 @@
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_DOOR_InteractivePoint_Template">
 				<ID>2</ID>
-				<ANIM_NAME>door_rear</ANIM_NAME>
+				<ANIM_NAME>door_service</ANIM_NAME>
 			</UseTemplate>
 			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
 				<ID>11</ID>
@@ -115,6 +115,22 @@
 			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
 				<ID>12</ID>
 				<NODE_ID>GROUND_GPUPIPE</NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+				<ID>13</ID>
+				<NODE_ID>Maintince_Stands </NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+				<ID>14</ID>
+				<NODE_ID>Emg_Slide_2</NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_FuelHose_InteractivePoint_Template">
+				<ID>15</ID>
+				<NODE_ID>Emg_Slide_1</NODE_ID>
+			</UseTemplate>
+			<UseTemplate Name="ASOBO_GT_Anim_Code">
+				<ANIM_NAME>Passanger_door_open</ANIM_NAME>
+				<ANIM_CODE>(A:EXIT OPEN:0, Percent)</ANIM_CODE>
 			</UseTemplate>
         </Component>
 <!-- Gear Goes Here for Asobo template-->
