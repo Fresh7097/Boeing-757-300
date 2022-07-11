@@ -18,182 +18,12 @@
 		<Include ModelBehaviorFile="Asobo\Generic\Animations.xml"/>
 		<Include ModelBehaviorFile="Asobo\Common\Instrument.xml"/>
   		<Include File="instruments.xml"/>
-        <Include ModelBehaviorFile="Asobo\Common.xml"/>
+		<Include ModelBehaviorFile="Asobo\Common.xml"/>
         <Include ModelBehaviorFile="Asobo\Airliner\GlassCockpit.xml"/>
 		<Include File="Boeing.xml"/>
                 
 <!-- Movables -->
-        <Component ID="Yoke_Controls">
-            <UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
-				<TT_DESCRIPTION_ID>@TT_Package.ENGINE_THROTTLE_ACTION</TT_DESCRIPTION_ID>
-				<TT_DESCRIPTION_INDEX>1</TT_DESCRIPTION_INDEX>
-				<ID>1</ID>
-				<NODE_ID>LEVER_THROTTLE_1</NODE_ID>
-				<ANIM_NAME>LEVER_THROTTLE_1</ANIM_NAME>
-				<NODE_ID_REVERSER>LEVER_THROTTLE_1_LOCK</NODE_ID_REVERSER>
-				<ANIM_NAME_REVERSER>LEVER_THROTTLE_1_LOCK</ANIM_NAME_REVERSER>
-				<DRAG_SPEED>0.5</DRAG_SPEED>
-				<LEVER_TYPE>BOEING</LEVER_TYPE>
-				<TOOLTIPID>TT:COCKPIT.TOOLTIPS.ENG1_THROTTLE_CONTROL</TOOLTIPID>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_ENGINE_Lever_Throttle_Template">
-				<TT_DESCRIPTION_ID>@TT_Package.ENGINE_THROTTLE_ACTION</TT_DESCRIPTION_ID>
-				<TT_DESCRIPTION_INDEX>2</TT_DESCRIPTION_INDEX>
-				<ID>2</ID>
-				<NODE_ID>LEVER_THROTTLE_2</NODE_ID>
-				<ANIM_NAME>LEVER_THROTTLE_2</ANIM_NAME>
-				<NODE_ID_REVERSER>LEVER_THROTTLE_2_LOCK</NODE_ID_REVERSER>
-				<ANIM_NAME_REVERSER>LEVER_THROTTLE_2_LOCK</ANIM_NAME_REVERSER>
-				<DRAG_SPEED>0.5</DRAG_SPEED>
-				<LEVER_TYPE>BOEING</LEVER_TYPE>
-				<TOOLTIPID>TT:COCKPIT.TOOLTIPS.ENG2_THROTTLE_CONTROL</TOOLTIPID>
-				<INVERT_IM_DRAG_INPUT_SCALAR>True</INVERT_IM_DRAG_INPUT_SCALAR>
-				<REVERSER_INVERT_IM_DRAG_INPUT_SCALAR>True</REVERSER_INVERT_IM_DRAG_INPUT_SCALAR>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_Yoke_Hideable_Template">
-				<ID>1</ID>
-				<NODE_ID>COCKPIT_pylon_yoke_pilot</NODE_ID>
-				<YOKE_HIDER_NODE_ID>COCKPIT_yoke_pilot</YOKE_HIDER_NODE_ID>
-				<YOKE_NODE_ID>COCKPIT_yoke_pilot</YOKE_NODE_ID>
-				<ANIM_NAME_YOKE_X>yoke_lever_stick_l_r</ANIM_NAME_YOKE_X>
-				<ANIM_NAME_YOKE_Y>yoke_lever_stick_fore_aft</ANIM_NAME_YOKE_Y>
-				<AP_CAN_DRIVE_ANIMATION>True</AP_CAN_DRIVE_ANIMATION>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_RudderPedals_Template">
-				<RUDDERPEDALS_TYPE>MIXED</RUDDERPEDALS_TYPE>
-				<NODE_ID_L_RUDDER>PEDALS_LEFT</NODE_ID_L_RUDDER>
-				<NODE_ID_R_RUDDER>PEDALS_RIGHT</NODE_ID_R_RUDDER>
-				<NODE_ID_L_BRAKE_1>PEDALS_BRAKE_1_1</NODE_ID_L_BRAKE_1>
-				<NODE_ID_L_BRAKE_2>PEDALS_BRAKE_2_1</NODE_ID_L_BRAKE_2>
-				<NODE_ID_R_BRAKE_1>PEDALS_BRAKE_1_2</NODE_ID_R_BRAKE_1>
-				<NODE_ID_R_BRAKE_2>PEDALS_BRAKE_2_2</NODE_ID_R_BRAKE_2>
-				<ANIM_NAME>pedals_lever_l_r</ANIM_NAME>
-				<DONT_BRAKE_ON_PARKINGBRAKE>True</DONT_BRAKE_ON_PARKINGBRAKE>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_Steering_Tiller_Template">
-				<NODE_ID>tiller_l</NODE_ID>
-				<ANIM_NAME>tiller_l</ANIM_NAME>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_Lever_Spoilers_Template">
-				<ANIM_NAME>lever_speed_brake</ANIM_NAME>
-				<NODE_ID>lever_speed_brake</NODE_ID>
-				<TYPE>AIRLINER</TYPE>
-				<INVERT_IM_DRAG_INPUT_SCALAR>True</INVERT_IM_DRAG_INPUT_SCALAR>
-			</UseTemplate>
-			<UseTemplate Name="ASOBO_HANDLING_Lever_Flaps_Template">
-				<NODE_ID>lever_flaps</NODE_ID>
-				<ANIM_NAME>lever_flaps</ANIM_NAME>
-				<ANIMTIP_0_ON_PERCENT>0</ANIMTIP_0_ON_PERCENT>
-				<ANIMTIP_1_ON_PERCENT>.17</ANIMTIP_1_ON_PERCENT>
-				<ANIMTIP_2_ON_PERCENT>.33</ANIMTIP_2_ON_PERCENT>
-				<ANIMTIP_3_ON_PERCENT>.50</ANIMTIP_3_ON_PERCENT>
-				<ANIMTIP_4_ON_PERCENT>.67</ANIMTIP_4_ON_PERCENT>
-				<ANIMTIP_5_ON_PERCENT>.83</ANIMTIP_5_ON_PERCENT>
-				<ANIMTIP_6_ON_PERCENT>1</ANIMTIP_6_ON_PERCENT>
-				<ANIMTIP_0>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_0</ANIMTIP_0>
-				<ANIMTIP_1>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_1</ANIMTIP_1>
-				<ANIMTIP_2>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_5</ANIMTIP_2>
-				<ANIMTIP_3>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_10</ANIMTIP_3>
-				<ANIMTIP_4>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_20</ANIMTIP_4>
-				<ANIMTIP_5>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_25</ANIMTIP_5>
-				<ANIMTIP_6>TT:COCKPIT.TOOLTIPS.FLAPS_LEVER_30</ANIMTIP_6>
-			</UseTemplate>
-		</Component>
-<!-- Electrical Panel -->
-	    <Component ID="Electrical_Panel">
-		    <DefaultTemplateParameters>
-			    <SIMVAR_POWER_SETTING>LIGHT PANEL POWER SETTING:1</SIMVAR_POWER_SETTING>
-			    <TYPE>BOEING</TYPE>
-    			<SEQ1_EMISSIVE_DRIVES_VISIBILITY>False</SEQ1_EMISSIVE_DRIVES_VISIBILITY>
-    			<SEQ1_CODE_DRIVES_VISIBILITY>True</SEQ1_CODE_DRIVES_VISIBILITY>
-	     		<SEQ1_CODE_DRIVES_DOWN_STATE>True</SEQ1_CODE_DRIVES_DOWN_STATE>
-		    	<SEQ2_NOT_DIMMABLE>True</SEQ2_NOT_DIMMABLE>
-		    </DefaultTemplateParameters>
-		    <DefaultTemplateParameters>
-			    <TYPE>BOEING</TYPE>
-			    <VARIANT>747</VARIANT>
-		    </DefaultTemplateParameters>
-		    <UseTemplate Name="ASOBO_ELECTRICAL_Switch_Battery_Master_Template">
-      	    	<NODE_ID>Overhead_PB_Battery_Master</NODE_ID>
-      	    	<ANIM_NAME>Overhead_PB_Battery_Master</ANIM_NAME>
-		    	<SEQ1_NODE_ID>Battery_SQ2</SEQ1_NODE_ID>
-		    	<SEQ2_NODE_ID>Battery_SQ1</SEQ2_NODE_ID>
-		    	<COVER_NODE_ID>Master_Battery_Cover</COVER_NODE_ID>
-		    	<COVER_ANIM_NAME>Master_Battery_Cover</COVER_ANIM_NAME>
-        	</UseTemplate>
-		    <UseTemplate Name="ASOBO_BOEING_Knob_StandbyPower_Template">
-		    	<NODE_ID>Overhead_Switch_Standby_Power</NODE_ID>
-	    		<ANIM_NAME>Overhead_Switch_Standby_Power</ANIM_NAME>
-		    	<BATTERY_BUS_ID>6</BATTERY_BUS_ID>
-		    	<MAIN_BUS_ID>4</MAIN_BUS_ID>
-	    		<DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
-		    </UseTemplate>
-		    <UseTemplate Name="DD_ELECTRICAL_Push_ExternalPower_Template">
-		    	<NODE_ID>Overhead_PB_External_Power</NODE_ID>
-		    	<ANIM_NAME>Overhead_PB_External_Power</ANIM_NAME>
-		    	<SEQ1_NODE_ID>External_Power_SQ2</SEQ1_NODE_ID>
-		    	<SEQ2_NODE_ID>External_Power_SQ1</SEQ2_NODE_ID>
-		    	<ID>1</ID>
-		    	<SIMVAR_POWER_SETTING_SEQ1>EXTERNAL POWER AVAILABLE:1</SIMVAR_POWER_SETTING_SEQ1>
-		    	<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
-	    	</UseTemplate>	
-		        <UseTemplate Name="ASOBO_ELECTRICAL_Push_APU_Generator_Template">
-			    <NODE_ID>APU_GEN</NODE_ID>
-			    <ANIM_NAME>APU_GEN</ANIM_NAME>
-		    	<SEQ1_NODE_ID>AP_GEN_SQ1</SEQ1_NODE_ID>
-			    <SEQ2_NODE_ID>AP_GEN_SEQ2</SEQ2_NODE_ID>
-		    	<ID>1</ID>
-		    	<SEQ1_CODE_DRIVES_DOWN_STATE>False</SEQ1_CODE_DRIVES_DOWN_STATE>
-		    </UseTemplate>
-			<UseTemplate Name="ASOBO_ELECTRICAL_Switch_APU_Starter_Template">
-				<NODE_ID>APU_Starter</NODE_ID>
-				<ANIM_NAME>APU_Starter</ANIM_NAME>
-				<SWITCH_POSITION_TYPE>L</SWITCH_POSITION_TYPE>
-				<SWITCH_POSITION_VAR>XMLVAR_APU_StarterKnob_Pos</SWITCH_POSITION_VAR>
-				<ACTIVE_FUEL_PUMP_ON_RPM>7</ACTIVE_FUEL_PUMP_ON_RPM>
-			</UseTemplate>
-			
-		    <UseTemplate Name="ASOBO_ELECTRICAL_Indicator_APU_Ready_Template">
-			    <NODE_ID>APU_Starter_SQ2</NODE_ID>
-			    <MIN_PCT_RPM>17</MIN_PCT_RPM>
-		    </UseTemplate>
-	    </Component>
-		<Component ID="AP_Screens">
-		<!-- AP Screen Digits -->
-			<UseTemplate Name="Autopilot_Heading_1">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Heading_10">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Heading_100">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Altitude_100">
-			</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Altitude_1000">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Altitude_10000">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_Speed_1">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Speed_10">
-    		</UseTemplate>
-			<UseTemplate Name="Autopilot_Speed_100">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_VS_100">
-    		</UseTemplate>
-
-			<UseTemplate Name="Autopilot_VS_1000">
-    		</UseTemplate>
-			
-			<UseTemplate Name="Autopilot_VS_Plus">
-    		</UseTemplate>
-
-		</Component>
-		
+        	
 
 <!-- Guagues -->
 
@@ -799,68 +629,40 @@
 			<UseTemplate Name="Compass_Disc">
 			</UseTemplate>	
 		</Component>
-<!-- Fuel Panel Button Decal Lights -->
-				<Component ID="FUEL_Push_Pump_Center_1_SQ1" Node="FUEL_Push_Pump_Center_1_SQ1">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:2, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_Center_2_SQ1" Node="FUEL_Push_Pump_Center_2_SQ1">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:13, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_1_AFT_SQ1" Node="FUEL_Push_Pump_1_AFT_SQ1">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:4, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_1_FRT_SQ1" Node="FUEL_Push_Pump_1_FRT_SQ1">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:8, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_2_AFT_SQ1" Node="FUEL_Push_Pump_2_AFT_SQ1">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:15, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_2_FRT_SQ1" Node="FUEL_Push_Pump_2_FRT_SQ1">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM LINE FUEL PRESSURE:19, KPa) 0 == &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_Center_1_SQ2" Node="FUEL_Push_Pump_Center_1_SQ2">
+<!-- Electrical Panel SEQ -->
+  <Component ID="Overhead_Battery_SQ2" Node="Overhead_Battery_SQ2">
+    <Visibility>
+      <Parameter>
+        <Code>(A:ELECTRICAL MASTER BATTERY, bool) if{ 1 } els{ 0 }</Code>
+      </Parameter>
+    </Visibility>
+  </Component>
+<Component ID="Overhead_Battery_SQ1" Node="Overhead_Battery_SQ1">
+    <Visibility>
+      <Parameter>
+        <Code>(A:ELECTRICAL MASTER BATTERY, bool) (A:BUS CONNECTION ON:4, bool) if{ 0 } els{ 1 }</Code>
+      </Parameter>
+    </Visibility>
+    </Component>
+    <Component ID="Standby_Power_Off" Node="Standby_Power_Off">
+    <Visibility>
+      <Parameter>
+        <Code>(A:ELECTRICAL MASTER BATTERY, bool) (A:BUS CONNECTION ON:4, bool) if{ 1 } els{ 0 }</Code>
+      </Parameter>
+    </Visibility>
+    </Component>
+
+    <Component ID="Electrical Panel">
+    	<UseTemplate Name="ASOBO_BOEING_Knob_StandbyPower_Template">
+		    <NODE_ID>Overhead_Switch_Standby_Power</NODE_ID>
+		    <ANIM_NAME>Overhead_Switch_Standby_Power</ANIM_NAME>
+		    <BATTERY_BUS_ID>6</BATTERY_BUS_ID>
+		    <MAIN_BUS_ID>4</MAIN_BUS_ID>
+		    <DONT_OVERRIDE_BASE_EMISSIVE>True</DONT_OVERRIDE_BASE_EMISSIVE>
+	    </UseTemplate>
+    </Component>    
+    <!-- Fuel Panel -->
+    <Component ID="Overhead_Pump_1_AFT_SEQ2" Node="Overhead_Pump_1_AFT_SEQ2">
     		<Visibility>
       			<Parameter>
        				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:1, Bool) &amp; if{ 1 } els{ 0 }</Code>
@@ -870,199 +672,12 @@
                 <EMISSIVE_CODE>1</EMISSIVE_CODE>
             </UseTemplate>
   		</Component>
-		<Component ID="FUEL_Push_Pump_Center_2_SQ2" Node="FUEL_Push_Pump_Center_2_SQ2">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:2, Bool) &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_1_AFT_SQ2" Node="FUEL_Push_Pump_1_AFT_SQ2">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:3, Bool) &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_1_FRT_SQ2" Node="FUEL_Push_Pump_1_FRT_SQ2">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:4, Bool) &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_2_AFT_SQ2" Node="FUEL_Push_Pump_2_AFT_SQ2">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:5, Bool) &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-		<Component ID="FUEL_Push_Pump_2_FRT_SQ2" Node="FUEL_Push_Pump_2_FRT_SQ2">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:6, Bool) &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-<!-- Hydralic Button Decal Lights -->
-		<Component ID="FUEL_Push_Pump_2_FRT_SQ2" Node="FUEL_Push_Pump_2_FRT_SQ2">
-    		<Visibility>
-      			<Parameter>
-       				<Code>(A:ELECTRICAL MASTER BATTERY, Bool) 100 &lt; (A:FUELSYSTEM PUMP SWITCH:6, Bool) &amp; if{ 1 } els{ 0 }</Code>
-      			</Parameter>
-    		</Visibility>
-			<UseTemplate Name="ASOBO_GT_Material_Emissive_Code">
-                <EMISSIVE_CODE>1</EMISSIVE_CODE>
-            </UseTemplate>
-  		</Component>
-    </Behaviors>
-<!-- Bleed Panel -->
-<Animation name="APU_Bleed" guid="7b41ba7f-afd6-4f04-8286-96d7a3484879" length="100" type="Sim" typeParam2="APU_Bleed" typeParam="AutoPlay" />
+  <!-- Electrical Panel -->
+</Behaviors>
+<!-- Fuel Pump -->
+<Animation name="Overhead_PB_Left_FWD_Pump" guid="81a2a932-4b66-4bfd-a5c2-6ecb49114902" length="100" type="Sim" typeParam2="Overhead_PB_Left_FWD_Pump" typeParam="AutoPlay" />
     <PartInfo>
-        <Name>APU_Bleed</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>BLEED AIR APU</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	1 (&gt;K:APU_BLEED_AIR_SOURCE_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="E1_Bleed" guid="1ada3aa8-f419-44ac-a392-e6305976b216" length="100" type="Sim" typeParam2="E1_Bleed" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>E1_Bleed</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>BLEED AIR ENGINE:1</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	1 (&gt;K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="E2_Bleed" guid="9f05779c-905b-483f-8a47-7f1ae0957654" length="100" type="Sim" typeParam2="E2_Bleed" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>E2_Bleed</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>BLEED AIR ENGINE:2</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	2 (&gt;K:ENGINE_BLEED_AIR_SOURCE_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<!-- Fuel Panel -->
-<Animation name="FUEL_Push_Pump_Center_1" guid="770cd954-89f6-4095-8917-eee9bb73f1fa" length="100" type="Sim" typeParam2="FUEL_Push_Pump_Center_1" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FUEL_Push_Pump_Center_1</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM PUMP SWITCH:1</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	1 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="FUEL_Push_Pump_Center_2" guid="c7ffdb4a-5b2e-4816-bed7-b4a0120dec9d" length="100" type="Sim" typeParam2="FUEL_Push_Pump_Center_2" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FUEL_Push_Pump_Center_2</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM PUMP SWITCH:2</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	2 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="FUEL_Push_Pump_1_AFT" guid="f602c5a7-fd02-4881-8202-561c600c9c09" length="100" type="Sim" typeParam2="FUEL_Push_Pump_1_AFT" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FUEL_Push_Pump_1_AFT</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM PUMP SWITCH:3</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	3 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="FUEL_Push_Pump_1_FWD" guid="43041294-ccb3-44b6-b4d2-388e922e06f3" length="100" type="Sim" typeParam2="FUEL_Push_Pump_1_FWD" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FUEL_Push_Pump_1_FWD</Name>
+        <Name>Overhead_PB_Left_FWD_Pump</Name>
         <AnimLength>100</AnimLength>
         <Animation>
             <Parameter>
@@ -1081,14 +696,16 @@
       		</CallbackCode>
         </MouseRect>
     </PartInfo>
-<Animation name="FUEL_Push_Pump_2_AFT" guid="083d341a-6115-4944-aed4-0d0a3d27034c" length="100" type="Sim" typeParam2="FUEL_Push_Pump_2_AFT" typeParam="AutoPlay" />
+
+			
+<Animation name="Overhead_PB_Battery_Master" guid="0acc84b5-2df4-4992-b433-068522e01bbf" length="100" type="Sim" typeParam2="Overhead_PB_Battery_Master" typeParam="AutoPlay" />
     <PartInfo>
-        <Name>FUEL_Push_Pump_2_AFT</Name>
+        <Name>Overhead_PB_Battery_Master</Name>
         <AnimLength>100</AnimLength>
         <Animation>
             <Parameter>
                 <Sim>
-                    <Variable>FUELSYSTEM PUMP SWITCH:5</Variable>
+                    <Variable>ELECTRICAL MASTER BATTERY</Variable>
                     <Units>bool</Units>
                     <Scale>100</Scale>
                 </Sim>
@@ -1098,391 +715,30 @@
         <MouseRect>
             <Cursor>Hand</Cursor>
       		<CallbackCode>
-		 	5 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
+			1 (&gt;K:TOGGLE_MASTER_BATTERY)
+			</CallbackCode>
+             </MouseRect>
     </PartInfo>
-<Animation name="FUEL_Push_Pump_2_FWD" guid="c6f0cc0c-f83b-4a91-a012-f8af25f32838" length="100" type="Sim" typeParam2="FUEL_Push_Pump_2_FWD" typeParam="AutoPlay" />
+
+   
+
+<!-- Button Covers -->
+<Animation name="Overhead_BC_Master_Battery" guid="1e595807-db26-4fd7-8c40-97b71ee6274a" length="100" type="Sim" typeParam2="Overhead_BC_Master_Battery" typeParam="AutoPlay" />
     <PartInfo>
-        <Name>FUEL_Push_Pump_2_FWD</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM PUMP SWITCH:6</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	6 (&gt;K:FUELSYSTEM_PUMP_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="Fuel_Valve1" guid="0b98cf63-522f-4b72-b7d8-3c24114537bf" length="100" type="Sim" typeParam2="Fuel_Valve1" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Fuel_Valve1</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM VALVE SWITCH:1</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	1 (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="Fuel_Valve2" guid="f0262598-2ce2-45bc-8cdb-35911e8f389b" length="100" type="Sim" typeParam2="Fuel_Valve2" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Fuel_Valve2</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM VALVE SWITCH:2</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	2 (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="FUEL_Push_Valve_1" guid="3800289f-75b3-4c58-8184-7e3d62af5bee" length="100" type="Sim" typeParam2="FUEL_Push_Valve_1" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>FUEL_Push_Valve_1</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>FUELSYSTEM VALVE SWITCH:3</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	3 (&gt;K:FUELSYSTEM_VALVE_TOGGLE)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<!-- Engine Panel -->
-<Animation name="Engine1_Stater" guid="985f8f00-9bd6-480d-9178-1465cdda9ee3" length="100" type="Sim" typeParam2="Engine1_Stater" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Engine1_Stater</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>GENERAL ENG STARTER:1</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	1 (&gt;K:TOGGLE_STARTER1)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="Engine2_Stater" guid="ef445c82-e03a-4482-a62a-5c5ad761595d" length="100" type="Sim" typeParam2="Engine2_Stater" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>Engine2_Stater</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>GENERAL ENG STARTER:2</Variable>
-                    <Units>bool</Units>
-                    <Scale>100</Scale>
-                </Sim>
-                <Lag>400</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-      		<CallbackCode>
-		 	1 (&gt;K:TOGGLE_STARTER2)
-      		</CallbackCode>
-        </MouseRect>
-    </PartInfo>
-<Animation name="RAT_PushButton" guid="a99d5095-7a6a-4148-ad01-024913b17fad" length="100" type="Sim" typeParam2="RAT_PushButton" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>RAT_PushButton</Name>
+	    <Name>Overhead_BC_Master_Battery</Name>
 	    <AnimLength>100</AnimLength>
 	    <Animation>
 	    	<Parameter>
 		    	<Code>
-		    		(L:ADG_POS, bool) 100 *
+		    		(L:Overhead_BC_Master_Battery, bool) 100 *
 		    	</Code>
-			<Lag>400</Lag>
-		</Parameter>
-	    </Animation>
-	    <MouseRect>
-		    <Cursor>Hand</Cursor>
-		    <CallbackCode>(L:ADG_POS, bool) ! (>L:ADG_POS, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>
-<!-- Cockpit Seats/Doors -->    
-<Animation name="Arm_Rest1" guid="f0a7e782-9c67-4acd-b535-2a91c6f68363" length="100" type="Sim" typeParam2="Arm_Rest1" typeParam="AutoPlay" />
-	<PartInfo>
-	<Name>Arm_Rest1</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Arm_Rest1, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Arm_Rest1, bool) ! (>L:Arm_Rest1, bool)</CallbackCode>
-	</MouseRect>
-	</PartInfo>
-<Animation name="Arm_Rest2" guid="90c541bf-cc7a-4878-86f3-f8aa7edb4d33" length="100" type="Sim" typeParam2="Arm_Rest2" typeParam="AutoPlay" />
-	<PartInfo>
-	<Name>Arm_Rest2</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Arm_Rest2, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Arm_Rest2, bool) ! (>L:Arm_Rest2, bool)</CallbackCode>
-	</MouseRect>
-	</PartInfo>
-<Animation name="Arm_Rest3" guid="351c8500-9907-408e-b36c-b3a5e3ec8237" length="100" type="Sim" typeParam2="Arm_Rest3" typeParam="AutoPlay" />
-	<PartInfo>
-	<Name>Arm_Rest3</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Arm_Rest3, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Arm_Rest3, bool) ! (>L:Arm_Rest3, bool)</CallbackCode>
-	</MouseRect>
-	</PartInfo>
-<Animation name="Arm_Rest4" guid="28035985-7617-4ab9-b09b-cb0c72bdf953" length="100" type="Sim" typeParam2="Arm_Rest4" typeParam="AutoPlay" />
-	<PartInfo>
-	<Name>Arm_Rest4</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:Arm_Rest4, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:Arm_Rest4, bool) ! (>L:Arm_Rest4, bool)</CallbackCode>
-	</MouseRect>
-	</PartInfo>
-<!-- Cockpit Door -->    
-<Animation name="Cockpit_Door" guid="9e0aa56e-d450-434a-b7e7-0dbcd80051ec" length="100" type="Sim" typeParam2="Cockpit_Door" typeParam="AutoPlay" />
-	<PartInfo>
-	    <Name>Cockpit_Door</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:Cockpit_Door, bool) 100 *
-		    	</Code>
-			    <Lag>100</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-		    <Cursor>Hand</Cursor>
-		    <CallbackCode>(L:Cockpit_Door, bool) ! (>L:Cockpit_Door, bool)</CallbackCode>
-	    </MouseRect>
-	</PartInfo>
-<!-- Jump Seats -->    
-<Animation name="Jumpseat_1" guid="db1d6825-6ee0-4f6a-8c90-e31cd885905b" length="100" type="Sim" typeParam2="Jumpseat_1" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>Jumpseat_1</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:Jumpseat_1, bool) 100 *
-			    </Code>
-			    <Lag>100</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-	    	<Cursor>Hand</Cursor>
-	    	<CallbackCode>(L:Jumpseat_1, bool) ! (>L:Jumpseat_1, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>
-<Animation name="Jumpseat_2" guid="6ae84a9b-efae-42cb-ac54-bdeac64d67d7" length="100" type="Sim" typeParam2="Jumpseat_2" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>Jumpseat_2</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:Jumpseat_2, bool) 100 *
-			    </Code>
-			    <Lag>100</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-	    	<Cursor>Hand</Cursor>
-	    	<CallbackCode>(L:Jumpseat_2, bool) ! (>L:Jumpseat_2, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>
-<!-- Seats 
-<Animation name="Seat2" guid="ba131b28-262f-4b56-bd43-7e217a0b50f0" length="100" type="Sim" typeParam2="Seat2" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>Seat2</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:Seat2, bool) 100 *
-			    </Code>
-			    <Lag>100</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-	    	<Cursor>Hand</Cursor>
-	    	<CallbackCode>(L:Seat2, bool) ! (>L:Seat2, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>
-<Animation name="Seat1" guid="da547561-9435-4468-aca3-7d8c74403863" length="100" type="Sim" typeParam2="Seat1" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>Seat1</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:Seat1, bool) 100 *
-			    </Code>
-			    <Lag>100</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-	    	<Cursor>Hand</Cursor>
-	    	<CallbackCode>(L:Seat1, bool) ! (>L:Seat1, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>-->
-<!-- Blinds -->
-<Animation name="Blinds_1" guid="aa0894a9-f4f6-4bc2-9070-9db8a50f6a43" length="100" type="Sim" typeParam2="Blinds_1" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>Blinds_1</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:Blinds_1, bool) 100 *
-			    </Code>
-			    <Lag>400</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-		    <Cursor>Hand</Cursor>
-	    	<CallbackCode>(L:Blinds_1, bool) ! (>L:Blinds_1, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>
-<!-- Button Covers -->
-<Animation name="EMR_Exit_Light_Cover" guid="5f9fa1b4-5912-44c6-b8fd-322707954688" length="100" type="Sim" typeParam2="EMR_Exit_Light_Cover" typeParam="AutoPlay" />
-	<PartInfo>
-	<Name>EMR_Exit_Light_Cover</Name>
-	<AnimLength>100</AnimLength>
-	<Animation>
-		<Parameter>
-			<Code>
-				(L:EMR_Exit_Light_Cover, bool) 100 *
-			</Code>
-			<Lag>100</Lag>
-		</Parameter>
-	</Animation>
-	<MouseRect>
-		<Cursor>Hand</Cursor>
-		<CallbackCode>(L:EMR_Exit_Light_Cover, bool) ! (>L:EMR_Exit_Light_Cover, bool)</CallbackCode>
-	</MouseRect>
-</PartInfo>
-<Animation name="RAT_Button_Cover" guid="e5043807-b9a5-4a11-82c9-aed25ff18294" length="100" type="Sim" typeParam2="RAT_Button_Cover" typeParam="AutoPlay" />
-    <PartInfo>
-	    <Name>RAT_Button_Cover</Name>
-	    <AnimLength>100</AnimLength>
-	    <Animation>
-		    <Parameter>
-			    <Code>
-			    	(L:RAT_Button_Cover, bool) 100 *
-			    </Code>
-			    <Lag>400</Lag>
-		    </Parameter>
-	    </Animation>
-	    <MouseRect>
-		    <Cursor>Hand</Cursor>
-	    	<CallbackCode>(L:RAT_Button_Cover, bool) ! (>L:RAT_Button_Cover, bool)</CallbackCode>
-	    </MouseRect>
-    </PartInfo>
-<!-- Landing Gear -->
-<Animation name="lever_landing_gear" guid="6176c7db-05b8-47d7-b97c-27febe6f2106" length="100" type="Sim" typeParam2="lever_landing_gear" typeParam="AutoPlay" />
-    <PartInfo>
-        <Name>lever_landing_gear</Name>
-        <AnimLength>100</AnimLength>
-        <Animation>
-            <Parameter>
-                <Sim>
-                    <Variable>GEAR HANDLE POSITION</Variable>
-                    <Units>percent</Units>
-                </Sim>
-                <Lag>200</Lag>
-            </Parameter>
-        </Animation>
-        <MouseRect>
-            <Cursor>Hand</Cursor>
-            <HelpID>HELPID_GAUGE_GEAR_LEVER</HelpID>
-            <TooltipID>TOOLTIPTEXT_GEAR_LEVER</TooltipID>
-            <MouseFlags>LeftSingle+LeftDrag+Wheel</MouseFlags>
-            <CallbackJumpDragging>
-                <YMovement>
-                    <Delta>50</Delta>
-                    <EventIdInc>GEAR_DOWN</EventIdInc>
-                    <EventIdDec>GEAR_UP</EventIdDec>
-                </YMovement>
-            </CallbackJumpDragging>
-        </MouseRect>
+		    	<Lag>100</Lag>
+	    	</Parameter>
+    	</Animation>
+    	<MouseRect>
+    		<Cursor>Hand</Cursor>
+    		<CallbackCode>(L:Overhead_BC_Master_Battery, bool) ! (>L:Overhead_BC_Master_Battery, bool)</CallbackCode>
+    	</MouseRect>
     </PartInfo>
 </ModelInfo>
 
